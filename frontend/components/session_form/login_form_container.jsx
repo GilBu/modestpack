@@ -8,7 +8,7 @@ import SessionForm from './session_form';
 const mSTP = ({ errors }) => {
     return {
         errors: errors.session,
-        fromType: 'login',
+        formType: 'log in',
         // navLink: <Link to='/signup'>Sign up</Link>
     };
 };
@@ -17,8 +17,8 @@ const mDTP = dispatch => {
     return {
         processForm: (user) => dispatch(login(user)),
         otherForm: (
-            <button onClick={() => dispatch(openModal('signup'))}>
-                Signup
+            <button className="selection" onClick={() => dispatch(openModal('selection'))}>
+                
             </button>
         ),
         closeModal: () => dispatch(closeModal())

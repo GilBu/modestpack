@@ -4,11 +4,8 @@ import { Link } from 'react-router-dom';
 const NavBar = ({ currentUser, logout, openModal }) => {
     const sessionLinks = () => (
         <nav className = "login-signup">
-            <button onClick={() => openModal('login')}>Login</button>
-            {/* <Link to="/login">Login</Link> */}
-            &nbsp;or&nbsp;
-            <button onClick={() => openModal('signup')}>Signup</button>
-            {/* <Link to="/signup">Sign up!</Link> */}
+            <a className="login-button" onClick={() => openModal('login')}>Log In</a>
+            <a className="signup-button" onClick={() => openModal('signup')}>Sign Up</a>
         </nav>
     );
 

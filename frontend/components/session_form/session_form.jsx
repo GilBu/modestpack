@@ -38,14 +38,12 @@ class SessionForm extends React.Component {
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    Welcome to Modest Pack!
-                    <br/>
-                    Please {this.props.formType} or {this.props.otherForm}
-                    <div onClick={this.props.closeModal} className="close-x">X</div>
+                    <div onClick={this.props.closeModal} className="close-x">✖</div>
+                    {this.props.otherForm}
                     {this.renderErrors()}
                     <div className="login-form">
                         <br/>
-                        <label>Username:
+                        <label className="inputs">Username:
                             <input type="text"
                                 value={this.state.username}
                                 onChange={this.update('username')}
@@ -53,18 +51,10 @@ class SessionForm extends React.Component {
                             />
                         </label>
                         <br/>
-                        <label>Password:
+                        <label className="inputs">Password:
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
-                                className="login-input"
-                            />
-                        </label>
-                        <br/>
-                        <label>Email:
-                            <input type="email"
-                                value={this.state.email}
-                                onChange={this.update('email')}
                                 className="login-input"
                             />
                         </label>

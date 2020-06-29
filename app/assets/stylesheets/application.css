@@ -14,8 +14,60 @@
  *= require_self
  */
 
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+	content: none;
+}
+table {
+  border-collapse: collapse;
+	border-spacing: 0;
+}
 
+.nav-container {
+  display: flex;
+  background-color: #262b31;
+  justify-content: center;
+}
  .modal-background {
   position: fixed;
   top: 0;
@@ -27,8 +79,199 @@
 }
 
 .modal-child {
+  background: rgba(161,167,178,0.3);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+  height: 80vh;
+  max-width: 375px;
+  max-height: 675px;
 }
+
+.login-form-container {
+  height: 100%;
+}
+
+.login-form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border: none;
+}
+
+.close-x {
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 15px;
+  justify-self: flex-start;
+  align-self: flex-end;
+}
+
+.selection {
+  /* align-self: flex-start;
+  margin: auto 0; */
+  position: absolute;
+  left: 0;
+  top: calc(50% - 40px);
+  cursor: pointer;
+  font-size: 30px;
+  padding: 20px 20px 20px 10px;
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.login-form {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-input {
+  width: 100%;
+  height: 50px;
+  border: none;
+  padding: 0;
+  border-radius: 3px;
+  background: rgba(161,167,178,0.3);
+}
+
+.session-submit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border: none;
+  height: 50px;
+  border-radius: 3px;
+  justify-content: center;
+  background-color: #97b147;
+  background-image: linear-gradient(-180deg, #97b147 0%, #7e992e 91%);
+}
+
+.session-submit, .login-signup {
+  font-family: 'Sofia Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+}
+
+.selection-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.selection-box {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-end;
+  padding: 0 40px 40px 40px;
+}
+
+.selection-modal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-name {
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 33px;
+  align-self: center;
+  padding: 20px;
+}
+
+.selection-modal > .login-signup {
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+}
+
+.selection-modal > .login-signup > a{
+  width: 100%;
+  background-color: #97b147;
+  background-image: linear-gradient(-180deg, #97b147 0%, #7e992e 91%);
+  margin-top: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.nav-content {
+  display: flex;
+  max-width: 1500px;
+  width: calc(100vw - 13.5em);
+  margin: 0 auto;
+  height: 65px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-link {
+  float: left;
+  height: 46.5px;
+  display: flex;
+  align-items: center;
+  font-family: 'Pacifico', cursive;
+  text-decoration: none;  
+  font-size: 33px;
+  color: white;
+}
+
+.nav-link:link {
+  text-decoration: none;
+}
+
+.nav-link:visited {
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+}
+
+.nav-link:active {
+  text-decoration: none;
+}
+
+.login-signup {
+  display: flex;
+  align-items: center;
+  float: right;
+  height: 46.5px;
+  color: white;
+}
+
+.login-signup > a {
+  padding: 13px 20px;
+  border: 2px solid #757880;
+  font-size: 1em;
+}
+
+.login-signup > .login-button {
+  border-radius: 4px 0 0 4px;
+}
+
+.login-signup > .signup-button {
+  border-radius: 0 4px 4px 0;
+  border-left: 2px solid transparent;
+}
+
+
+
+
+
+

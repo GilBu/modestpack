@@ -12,9 +12,9 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './modal/modal';
 
 const App = () => (
-    <div>
+    <div className="nav-container">
         <Modal />
-        <nav>
+        <nav className="nav-content">
             <Link to="/" className="nav-link">
                 <h1>Modest Pack</h1>
             </Link>
