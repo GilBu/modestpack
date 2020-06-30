@@ -10,14 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_233035) do
+ActiveRecord::Schema.define(version: 2020_06_29_213621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "games", force: :cascade do |t|
+    t.string "title", null: false
+    t.float "price", null: false
+    t.text "description", null: false
+    t.integer "sale", null: false
+    t.string "platform", null: false
+    t.string "operating_system", null: false
+    t.string "developer", null: false
+    t.string "publisher", null: false
+    t.string "system_requirements"
+    t.string "links"
+    t.string "ratings"
+    t.string "rating_list"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_games_on_title", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
-    t.string "email", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.datetime "created_at", null: false

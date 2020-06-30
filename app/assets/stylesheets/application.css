@@ -45,7 +45,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
+  font-family: 'Sofia Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -65,7 +66,8 @@ table {
 
 .nav-container {
   display: flex;
-  background-color: #262b31;
+  background-color: #494f5c;
+  border-bottom: 1px #373c46 solid;
   justify-content: center;
 }
  .modal-background {
@@ -259,6 +261,7 @@ table {
   padding: 13px 20px;
   border: 2px solid #757880;
   font-size: 1em;
+  color: white;
 }
 
 .login-signup > .login-button {
@@ -270,8 +273,59 @@ table {
   border-left: 2px solid transparent;
 }
 
+.showcase-container {
+  display: block;
+  background-color: #282c34;
+  color: #a1a7b2;
+}
 
+.showcase {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 1140px;
+  margin: 0 auto;
+  box-sizing: inherit;
+  flex-direction: row;
+  width: 100%;
+}
 
+.game-title {
+  flex-basis: 100%;
+  max-width: 100%;
+  font-size: 1.875em;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 0 0 0.25em;
+  font-weight: bold;
+  color: #a1a7b3;
+}
 
+.showcase-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 
+.small-showcase {
+  justify-self: flex-end;
+  flex-basis: 32.5%;
+  max-width: 32.5%;
+}
 
+.pricing {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.prices {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.carousel {
+  flex-basis: 100%;
+  max-width: 100%;
+}
