@@ -5,11 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 Game.delete_all
 User.delete_all
 
-Game.create!(
+game1 = Game.create!(
     title: 'Tem Tem',
     price: 34.99,
     description:   
@@ -67,7 +68,35 @@ Always Growing: New content is constantly being added to Temtem, new events, new
     rating_list: "Comic Mischief, Mild Cartoon Violence"
 )
 
-Game.create!(
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/tem_tem/cover_art.jpeg')
+game1.screenshots.attach(io: file, filename: 'cover_art.jpg')
+  
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/tem_tem/screenshot1.jpeg')
+game1.screenshots.attach(io: file, filename: 'screenshot1.jpg')
+  
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/tem_tem/screenshot2.jpeg')
+game1.screenshots.attach(io: file, filename: 'screenshot2.jpg')
+  
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/tem_tem/screenshot3.jpeg')
+game1.screenshots.attach(io: file, filename: 'screenshot3.jpg')
+  
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/tem_tem/screenshot4.jpeg')
+game1.screenshots.attach(io: file, filename: 'screenshot4.jpg')
+  
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/tem_tem/screenshot5.jpeg')
+game1.screenshots.attach(io: file, filename: 'screenshot5.jpg')
+  
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/tem_tem/screenshot6.jpeg')
+game1.screenshots.attach(io: file, filename: 'screenshot6.jpg')
+  
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/tem_tem/screenshot7.jpeg')
+game1.screenshots.attach(io: file, filename: 'screenshot7.jpg')
+  
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/tem_tem/screenshot8.jpeg')
+game1.screenshots.attach(io: file, filename: 'screenshot8.jpg')
+  
+
+game2 = Game.create!(
   title: 'Pokemon Sword',
     price: 59.99,
     description: "Get ready for the next Pokémon adventure in the Pokémon™ Sword and Pokémon™ Shield games.
@@ -95,7 +124,25 @@ Supported Languages: English",
     rating_list: "Comic Mischief, Mild Cartoon Violence"
 )
 
-Game.create!(
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/pokemon_sword/cover_art.jpg')
+game2.screenshots.attach(io: file, filename: 'cover_art.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/pokemon_sword/screenshot1.jpg')
+game2.screenshots.attach(io: file, filename: 'screenshot1.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/pokemon_sword/screenshot2.jpg')
+game2.screenshots.attach(io: file, filename: 'screenshot2.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/pokemon_sword/screenshot3.jpg')
+game2.screenshots.attach(io: file, filename: 'screenshot3.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/pokemon_sword/screenshot4.jpg')
+game2.screenshots.attach(io: file, filename: 'screenshot4.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/pokemon_sword/screenshot5.jpg')
+game2.screenshots.attach(io: file, filename: 'screenshot5.jpg')
+
+game3 = Game.create!(
   title: 'FACTORIO',
     price: 30.00,
     description: "Factorio is a game in which you build and maintain factories. You will be mining resources, 
@@ -127,6 +174,75 @@ Supported Languages: English",
     links: "http://www.factorio.com/"
 )
 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/cover_art.jpeg')
+game3.screenshots.attach(io: file, filename: 'cover_art.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot1.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot1.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot2.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot2.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot3.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot3.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot4.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot4.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot5.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot5.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot6.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot6.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot7.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot7.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot8.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot8.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot9.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot9.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot10.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot10.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot11.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot11.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot12.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot12.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot13.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot13.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot14.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot14.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot15.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot15.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot16.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot16.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot17.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot17.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot18.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot18.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot19.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot19.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot20.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot20.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot21.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot21.jpg')
+ 
+file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/screenshot22.jpeg')
+game3.screenshots.attach(io: file, filename: 'screenshot22.jpg')
+ 
 User.create!(
   username: 'guest',
   password: 'password'

@@ -28,10 +28,25 @@ class SessionForm extends React.Component {
     handleDemo(e) {
         e.preventDefault();
         const demoUser = {
-            username: 'demouser',
+            username: 'guest',
             password: 'password'
         }
         this.props.processForm(demoUser).then(this.props.closeModal);
+    }
+
+    displayDemo(formType) {
+        if (formType === 'log in') {
+            return(
+                <div>
+                    <br />
+                    <input className="demo-submit" type="button" onClick={this.handleDemo} value='Demo Login' />
+                </div>
+            )
+        } else {
+            return(
+                <div></div>
+            )
+        }
     }
 
     renderErrors() {
@@ -47,6 +62,7 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        const isLogin = this.props.formType === 'log in';
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -72,8 +88,18 @@ class SessionForm extends React.Component {
                         </label>
                         <br />
                         <input className="session-submit" type="submit" value={this.props.formType} />
-                        <br />
-                        <input className="demo-submit" type="button" onClick={this.handleDemo} value='Demo Login'/>
+                        
+                        <div>
+                            {isLogin
+                                ? <div>
+                                    <br/>
+                                    <input className="demo-submit" type="button" onClick={this.handleDemo} value='Demo Login' />
+                                </div>
+                                : <div></div>
+
+
+                            }
+                        </div>
                     </div>
                 </form>
             </div>
