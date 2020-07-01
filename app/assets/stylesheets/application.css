@@ -113,6 +113,11 @@ table {
   align-self: flex-end;
 }
 
+.close-x:hover {
+  border: 2px solid white;
+  cursor: pointer;
+}
+
 .selection {
   /* align-self: flex-start;
   margin: auto 0; */
@@ -133,22 +138,30 @@ table {
   padding: 40px;
 }
 
+.error-display {
+  color: red;
+  padding-bottom: 5px;
+}
+
 .inputs {
   display: flex;
   flex-direction: column;
   width: 100%;
+  color: white;
 }
 
 .login-input {
   width: 100%;
   height: 50px;
   border: none;
-  padding: 0;
+  padding: 5px;
   border-radius: 3px;
   background: rgba(161,167,178,0.3);
+  color: white;
+  font-size: 20px;
 }
 
-.session-submit {
+.session-submit, .demo-submit {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -161,7 +174,17 @@ table {
   background-image: linear-gradient(-180deg, #97b147 0%, #7e992e 91%);
 }
 
-.session-submit, .login-signup {
+.session-submit:hover, .demo-submit:hover {
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.demo-submit {
+  background-color: #6fe9df;
+  background-image: linear-gradient(-180deg, #6fe9df 0%, #4ec7bd 91%);
+}
+
+.session-submit, .login-signup, .header-button, .demo-submit {
   font-family: 'Sofia Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: bold;
@@ -257,11 +280,17 @@ table {
   color: white;
 }
 
-.login-signup > a {
+.login-signup > a:hover {
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.login-signup > a, .header-button {
   padding: 13px 20px;
   border: 2px solid #757880;
   font-size: 1em;
   color: white;
+  background-color: #494f5c;
 }
 
 .login-signup > .login-button {
@@ -271,6 +300,25 @@ table {
 .login-signup > .signup-button {
   border-radius: 0 4px 4px 0;
   border-left: 2px solid transparent;
+}
+
+.header-button {
+  border-radius: 4px;
+}
+
+.header-name {
+  height: 46.5px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;  
+  font-size: 20px;
+  color: white;
+  padding-right: 10px;
+}
+
+.header-group {
+  display: flex;
+  flex-direction: row;
 }
 
 .showcase-container {
@@ -311,12 +359,20 @@ table {
   justify-self: flex-end;
   flex-basis: 32.5%;
   max-width: 32.5%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.small-img-showcase {
+  width: 100%;
 }
 
 .pricing {
   display: flex;
   flex-direction: column;
   height: 100%;
+  color: #aeb4c1;
+  font-size: 1em;
+  padding: .6em 1em .8em;
 }
 
 .prices {
@@ -325,7 +381,39 @@ table {
   justify-content: flex-end;
 }
 
+.steam-icon {
+  fill: '#000000';
+  filter: invert(.75);
+}
+
+.add-to-cart {
+  background-color: #9cb946;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.25em;
+  font-weight: bold;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+  text-shadow: 0 3px 0 rgba(0,0,0,0.2);
+  text-transform: uppercase;
+  margin-bottom: .8em;
+  height: 67px;
+  border: none;
+}
+
+.fa-shopping-cart {
+  padding-right: .7em;
+}
+
 .carousel {
   flex-basis: 100%;
   max-width: 100%;
+}
+
+.game-system-requirements {
+  white-space: pre;
+}
+.game-description {
+  white-space: pre-wrap;
 }

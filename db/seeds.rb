@@ -12,36 +12,28 @@ User.delete_all
 Game.create!(
     title: 'Tem Tem',
     price: 34.99,
-    description: "Temtem is a massively multiplayer creature-collection adventure. 
-        Every kid dreams about becoming a Temtem tamer exploring the six islands of the Airborne Archipelago 
-        , discovering new species, and making good friends along the way.  Now it\u2019s your turn to embark on an epic 
-        adventure and make those dreams come true. 
-        Catch new Temtem on Omninesia\u2019s floating islands, battle other tamers on the sandy beaches of Deniz or 
-        trade with your friends in Tucma\u2019s ash-covered fields. Defeat the ever-annoying Clan Belsoto and end its 
-        plot to rule over the Archipelago, beat all eight Dojo Leaders, and become the ultimate 
-        Temtem tamer! 
-        These are the floating islands where Temtem and humans coexist peacefully. Each island is a whole different 
-        world, but there is something we all have in common \u2013 our love for Temtem and Temtem battles! Intrepid 
-        tamers like yourself travel on airships to the furthest reaches of the Archipelago to find the best Temtem. 
-        Every young tamer dreams of becoming the best\u2026 
-        Story Campaign: Journey across six vivid islands and embark on the adventure of becoming a Temtem tamer while 
-        fighting against the evil Clan Belsoto. 
-        Online World: The days of traveling solo are over; in Temtem the world is a massively multiplayer one. Tamers 
-        from around the world can join and you will be able to see them around you, living the adventure with you and 
-        fighting to become the best Temtem tamer. 
-        Co-Op Adventure: You will be able to join forces with a friend any time and work together towards your next 
-        goal. Catch new Temtem, complete a Route, or face off against a Temtem Leader; all while fighting alongside 
-        your friend in dual battles! 
-        Housing: Buy your own house at Atoll Row and decorate it your way. Buy new furniture, color your walls and 
-        you\u2019ll be ready to invite your friends over! 
-        Customize: Customize your character to stand out from the crowd and get new cosmetics while you battle other 
-        tamers. Pick a silly hat, a comfy sweatshirt, some pants and you\u2019re ready to go! Or maybe you prefer to 
-        wear a full-on cosplay of your favorite Temtem? 
-        Competitive: Start by choosing 8 Temtem and the pick and ban phase will begin. Take turns with your rival to 
-        pick your Temtem and ban theirs. When all the decisions are made and the turns are ended, you will end up with 
-        a squad of 5 Temtem and the battle will begin. 
-        Always Growing: New content is constantly being added to Temtem, new events, new missions, new cosmetics, new 
-        Temtem, and new ways to play!" ,
+    description:   
+'Temtem is a massively multiplayer creature-collection adventure.
+  
+Every kid dreams about becoming a Temtem tamer; exploring the six islands of the Airborne Archipelago, discovering new species, and making good friends along the way.  Now it\'s your turn to embark on an epic adventure and make those dreams come true.
+
+Catch new Temtem on Omninesia\'s floating islands, battle other tamers on the sandy beaches of Deniz or trade with your friends in Tucma\'s ash-covered fields. Defeat the ever-annoying Clan Belsoto and end its plot to rule over the Archipelago, beat all eight Dojo Leaders, and become the ultimate Temtem tamer!
+  
+These are the floating islands where Temtem and humans coexist peacefully. Each island is a whole different world, but there is something we all have in common - our love for Temtem and Temtem battles! Intrepid tamers like yourself travel on airships to the furthest reaches of the Archipelago to find the best Temtem. Every young tamer dreams of becoming the best...
+
+Story Campaign: Journey across six vivid islands and embark on the adventure of becoming a Temtem tamer while fighting against the evil Clan Belsoto.
+   
+Online World: The days of traveling solo are over; in Temtem the world is a massively multiplayer one. Tamers from around the world can join and you will be able to see them around you, living the adventure with you and fighting to become the best Temtem tamer.
+   
+Co-Op Adventure: You will be able to join forces with a friend any time and work together towards your next goal. Catch new Temtem, complete a Route, or face off against a Temtem Leader; all while fighting alongside your friend in dual battles!
+   
+Housing: Buy your own house at Atoll Row and decorate it your way. Buy new furniture, color your walls and you\'ll be ready to invite your friends over!
+   
+Customize: Customize your character to stand out from the crowd and get new cosmetics while you battle other tamers. Pick a silly hat, a comfy sweatshirt, some pants and you\'re ready to go! Or maybe you prefer to wear a full-on cosplay of your favorite Temtem?
+   
+Competitive: Start by choosing 8 Temtem and the pick and ban phase will begin. Take turns with your rival to pick your Temtem and ban theirs. When all the decisions are made and the turns are ended, you will end up with a squad of 5 Temtem and the battle will begin.
+
+Always Growing: New content is constantly being added to Temtem, new events, new missions, new cosmetics, new Temtem, and new ways to play!',
     sale: 10,
     platform: "Steam, Windows",
     operating_system: "Windows",
@@ -49,27 +41,27 @@ Game.create!(
     publisher: "Humble Games",
     system_requirements: "Minimum:
 
-                            Windows
-                            OS: Windows 10 64bits
-                            Processor: Celeron G530 2.4Ghz or similar
-                            Memory: 4 GB RAM
-                            Graphics: Nvidia GT 650M or similar
-                            Network: Broadband Internet connection
-                            Storage: 5 GB available space
-                            Additional Notes: Minimum requirements for playing at 720p@30fps
+        Windows
+        OS: Windows 10 64bits
+        Processor: Celeron G530 2.4Ghz or similar
+        Memory: 4 GB RAM
+        Graphics: Nvidia GT 650M or similar
+        Network: Broadband Internet connection
+        Storage: 5 GB available space
+        Additional Notes: Minimum requirements for playing at 720p@30fps
 
-                            Recommended:
+        Recommended:
 
-                            Windows
-                            OS: Windows 10 64bits
-                            Processor: Intel i3-6100T 3.2Ghz or similar
-                            Memory: 8 GB RAM
-                            Graphics: Nvidia GTX 970 or similar
-                            Network: Broadband Internet connection
-                            Storage: 5 GB available space
-                            Additional Notes: Recommended requirements for playing at 1080p@60fps
+        Windows
+        OS: Windows 10 64bits
+        Processor: Intel i3-6100T 3.2Ghz or similar
+        Memory: 8 GB RAM
+        Graphics: Nvidia GTX 970 or similar
+        Network: Broadband Internet connection
+        Storage: 5 GB available space
+        Additional Notes: Recommended requirements for playing at 1080p@60fps
 
-                            Supported Languages: English, French, German, Spanish - Spain, Japanese, Korean, Simplified Chinese",
+        Supported Languages: English, French, German, Spanish - Spain, Japanese, Korean, Simplified Chinese",
     links: "http://ks.playtemtem.com/",
     ratings: "E",
     rating_list: "Comic Mischief, Mild Cartoon Violence"

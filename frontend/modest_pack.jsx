@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 users: { [window.currentUser.id]: window.currentUser }
             }
         };
-        stone = configureStore(preloadedState);
+        store = configureStore(preloadedState);
         delete window.currentUser;
     } else {
         store = configureStore();

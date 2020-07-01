@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
 
-import { logout } from '../../actions/session_actions';
+import { logout, demoLogin } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 import NavBar from './nav_bar';
+
+
 
 const mSTP = ({ session, entities: { users } }) => {
     return {

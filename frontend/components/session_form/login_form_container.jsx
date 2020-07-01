@@ -18,7 +18,17 @@ const mDTP = dispatch => {
         processForm: (user) => dispatch(login(user)),
         otherForm: (
             <button className="selection" onClick={() => dispatch(openModal('selection'))}>
-                
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    ariaHidden="true"
+                    style={{ MsTransform: "rotate(360deg)" }}
+                    transform="rotate(360)"
+                    viewBox="0 0 20 20"
+                >
+                    <path fill="#FFFFFF" d="M14 5l-5 5 5 5-1 2-7-7 7-7z"></path>
+                </svg>
             </button>
         ),
         closeModal: () => dispatch(closeModal())
