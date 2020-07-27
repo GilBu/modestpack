@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
+  line-height: 1;
   font-family: 'Sofia Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -82,6 +83,14 @@ body {
   justify-content: flex-end;
 }
 
+.game-price {
+  font-size: 1.425em;
+  margin-top: -0.1em;
+  text-align: right;
+  font-weight: bold;
+  color: white;
+}
+
 .icons {
   fill: '#000000';
   filter: invert(.75);
@@ -112,6 +121,8 @@ body {
   max-width: 100%;
 }
 
+
+
 .game-system-requirements {
   white-space: pre;
 }
@@ -129,10 +140,33 @@ body {
 }
 
 .details {
+  font-size: 16px;
   max-width: 1140px;
   min-width: 1160px;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+}
+
+.details > div > label {
+  font-weight: bolder;
+  text-transform: uppercase;
+  display: block;
+  font-size: 0.875em;
+  color: #a1a7b2;
+  line-height: 1.35;
+}
+
+.details > div > label > p {
+  font-weight: bold;
+  line-height: 1.35;
+  font-size: 0.875em;
+  color: white;
+  text-transform: capitalize;
+}
+
+.col > * {
+  margin-bottom: 12px;
 }
 
 .description-container {
@@ -147,9 +181,16 @@ body {
   max-width: 1140px;
 }
 
-.system-requirements {
+.system-requirements-container {
+  display: flex;
+  justify-content: center;
   color: #a1a7b2;
   background-color: #1b1e1b;
   font-size: 16px;
   line-height: 1.35;
+}
+
+.system-requirements {
+  min-width: 1160px;
+  max-width: 1140px;
 }

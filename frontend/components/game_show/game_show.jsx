@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { Component, createRef } from "react";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
+const useMountEffect = (fun) => useEffect(fun, [])
 
 class GameShow extends React.Component {
+    constructor(props) {
+        super(props);
+        this.scrollDiv = createRef();
+    }
+
     componentDidMount(){
         this.props.fetchGame(this.props.match.params.gameId);
     }
@@ -3809,6 +3818,7 @@ class GameShow extends React.Component {
                 }
             }
         )
+
         return (
             <div>
                 <div className="showcase-container">
@@ -3820,13 +3830,13 @@ class GameShow extends React.Component {
                                 <img className="small-img-showcase" src={game.photoUrls[0]}/>
                                 <div className="pricing">
                                     <p className="game-platform">
-                                        {icons.map(icon => (
-                                            <p key={icon}>{icon}</p>
+                                        {icons.map((icon, index) => (
+                                            <p key={index}>{icon}</p>
                                         ))}
-                                        </p>
+                                    </p>
                                     <div className="prices">
                                         <p className="game-sale">{game.sale}</p>
-                                        <p className="game-price">{game.price}</p>
+                                        <p className="game-price">${(game.price * (1 - game.sale * .01)).toFixed(2)}</p>
                                     </div>
                                     <button className="add-to-cart" >
                                         <i className="fa fa-shopping-cart"></i>Add To Cart</button>
@@ -3838,11 +3848,11 @@ class GameShow extends React.Component {
                 </div>
                 <div className="details-container">
                     <div className="details">
-                        <div className="col-1">
+                        <div className="col">
                             <label>Platform
                                 <p className="game-platform">
-                                    {icons.map(icon => (
-                                        <p key={icon}>{icon}</p>
+                                    {icons.map((icon, index) => (
+                                        <p key={index}>{icon}</p>
                                     ))}
                                 </p>
                             </label>
@@ -3853,7 +3863,7 @@ class GameShow extends React.Component {
                                 <p className="game-genre">Genre</p>
                             </label>
                         </div>
-                        <div className="col-2">
+                        <div className="col">
                             <label>Developer
                                 <p className="game-developer">{game.developer}</p>
                             </label>
@@ -3861,10 +3871,12 @@ class GameShow extends React.Component {
                                 <p className="game-publisher">{game.publisher}</p>
                             </label>
                             <label>System Requirements
-                                <p className="game-system-requirements">Learn More</p>
+                                <p className="game-system-requirements" onClick={() => {
+                                    this.scrollDiv.current.scrollIntoView({ behavior: 'smooth' });
+                                }}>Learn More</p>
                             </label>
                         </div>
-                        <div className="col-3">
+                        <div className="col">
                             <label>Links
                                 <p className="game-links">{game.links}</p>
                             </label>
@@ -3878,11 +3890,12 @@ class GameShow extends React.Component {
                         </label>
                     </div>
                 </div>
-                <div className="system-requirements">
-                    <label>SYSTEM REQUIREMENTS
-                        <p className="game-system-requirements">{game.system_requirements}</p>
-                    </label>
-                </div>                
+                <div className="system-requirements-container">
+                    <div className="system-requirements">
+                        <label>SYSTEM REQUIREMENTS</label>
+                        <p className="game-system-requirements" ref={this.scrollDiv}>{game.system_requirements}</p>
+                    </div>                
+                </div>
             </div>  
         )
     }
