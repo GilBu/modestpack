@@ -1,24 +1,29 @@
-# README
+# Modest Pack
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Modest Pack, a Humble Bundle clone, is an online store where users can purchase games and create wishlist for those games.
 
-Things you may want to cover:
+(https://modest-pack.herokuapp.com/ "Live demo")
 
-* Ruby version
+## Technologies
 
-* System dependencies
+* Backend
+  * Ruby on Rails
+  * ActiveRecord
+  * AWS
+  * PostgreSQL
+* Frontend
+  * React
+  * Redux
 
-* Configuration
+## Features
 
-* Database creation
+* Secure user authentication
+* View and purchase games
 
-* Database initialization
+## Modal Login
 
-* How to run the test suite
+Nav bar will contain buttons to open a modal that either login or sign up for the website. The modal contain input fields that take in a username and password to login or signup. The modal would also have a button to render another modal that would have buttons to change to a login or signup modal. The login modal would have a demo user login.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Game Show Page
 
-* Deployment instructions
-
-* ...
+Each game being sold on Modest Pack would have a show page where you can see details on the game and purchase the game
