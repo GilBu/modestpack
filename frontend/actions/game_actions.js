@@ -5,7 +5,7 @@ export const RECEIVE_GAME = 'RECEIVE_GAME';
 
 export const receiveGames = games => ({
     type: RECEIVE_GAMES,
-    games,
+    games
 });
 
 export const receiveGame = game => ({
@@ -13,8 +13,8 @@ export const receiveGame = game => ({
     game
 });
 
-export const fetchGames = filters => dispatch => (
-    APIUtil.fetchGames(filters).then(games => (
+export const fetchGames = () => dispatch => (
+    APIUtil.fetchGames().then(games => (
         dispatch(receiveGames(games))
     ))
 );

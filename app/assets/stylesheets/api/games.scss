@@ -8,6 +8,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.game-show {
+  font-size: 16px;
+  line-height: 1.35;
+}
+
 .showcase-container {
   display: block;
   background-color: #282c34;
@@ -41,11 +46,14 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin: 6px 0;
 }
 
 .large-showcase {
   margin: 6px 0;
   margin-bottom: 13.5px;
+  flex-basis: 65%;
+  max-width: 65%;
 }
 
 .small-showcase {
@@ -81,9 +89,25 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-bottom: .8em;
+}
+
+.game-sale {
+  background-image: radial-gradient(circle at 50% 0, #61862d, #537326);
+  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.15);
+  color: #e6ff99;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: .75em;
+  padding: 0.3em 0.6em 0.4em;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.2);
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .game-price {
+  flex-grow: 2;
+  line-height: 1.35;
   font-size: 1.425em;
   margin-top: -0.1em;
   text-align: right;
@@ -120,8 +144,6 @@ body {
   flex-basis: 100%;
   max-width: 100%;
 }
-
-
 
 .game-system-requirements {
   white-space: pre;

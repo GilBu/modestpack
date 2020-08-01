@@ -1,0 +1,102 @@
+$black: #171a21;
+$button: #253c58;
+$button-hover: #2e5788;
+
+%button {
+  color: cornflowerblue;
+  background-color: $button;
+}
+
+%button-hover {
+  background-color: $button-hover;
+  color: lightgrey;
+}
+
+.sliderDiv {
+  margin: 6px 0;
+  overflow: hidden;
+  position: relative;
+
+  img { 
+    cursor: pointer;
+    object-fit: cover;
+    opacity: 0.85;
+    transition-duration: .2s;
+    transform: scale(0.99);
+
+    &:hover {
+    opacity: 1;
+    // border: none;
+    transform: scale(1);
+    z-index: 10;
+    overflow: visible;
+    }
+  }
+}
+
+.slide {
+  margin: 0 6px;
+}
+
+.main-image {
+  width: 600px;
+  height: 350px;
+}
+
+.slider {
+  width: 1140px;
+  z-index: -1;
+  display: flex;
+  transition-duration: 0.5s;
+
+  .selected {
+    border: 2px solid white;
+    margin: 0 6px 0 0;
+  }
+}
+
+.slide {
+  margin: none;
+}
+
+.slider-container {
+  display: block;
+  position: relative;
+}
+
+.sliderButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;  
+}
+
+.goRight, .goLeft {
+    display: flex;
+    height: 100%;
+    @extend %button;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 15px;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+
+    &:hover, &:hover {
+      @extend %button-hover;
+    }
+
+    
+  }
+
+  .goLeft {
+    left: -40px;
+  }
+  .goRight {
+    right: -40px;
+  }

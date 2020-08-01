@@ -12,6 +12,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './modal/modal';
+import GameIndexContainer from './game_index/game_index_container';
 
 const App = () => (
     <div>
@@ -24,7 +25,10 @@ const App = () => (
                 <NavBarContainer />
             </nav>
         </div>
-        <Route path="/games/:gameId" component={GameShowContainer} />
+        <Switch>
+            <Route path="/games/:gameId" component={GameShowContainer} />
+            <Route path="/" component={GameIndexContainer} />
+        </Switch>
     </div>
 );
 

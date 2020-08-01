@@ -1,106 +1,43 @@
-import React, { Component, createRef } from "react";
-import Slide from '../slider/slide';
+import React from 'react';
 
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
-const useMountEffect = (fun) => useEffect(fun, [])
+class GameListItem extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-class GameShow extends React.Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            index: 0,
-            delta: 0,
-        };
+  render() {
+    const { game } = this.props;
+    const { title } = game;
 
-        this.scrollDiv = createRef();
-
-        this.goLeft = this.goLeft.bind(this);
-        this.goRight = this.goRight.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-
-        this.containerWidth = 1145;
-        this.height = 122;
-        this.width = 218;
-        this.sources = this.props
-
-        this.shift = 0
-        this.conLen = 0;
-
-    }
-
-    goLeft() {
-        let { index, delta } = this.state;
-        let length = this.sources.length;
-
-        if (index > 0) index -= 1;
-        else index = this.sources.length - 1;
-
-        if (index === length - 1) delta = 100 - this.conLen;
-        else if (delta !== 0) delta += 20;
-
-        this.setState({ index, delta });
-    }
-
-    goRight() {
-        let { index, delta } = this.state;
-
-        if (index === (this.sources.length - 1)) index = 0;
-        else index += 1;
-
-        if (index === 0) delta = 0;
-        else if (delta > (100 - this.conLen)) delta -= this.shift;
-
-
-        this.setState({ index, delta })
-    }
-
-    handleClick(e) {
-        let index = Number(e.target.dataset.index);
-
-        let delta;
-        if (index < this.sources.length - 5) delta = 0 - this.shift * index;
-        else delta = 100 - this.conLen;
-
-        this.setState({ index, delta });
-    }
-
-    componentDidMount(){
-        this.props.fetchGame(this.props.match.params.gameId);
-    }
-    render() {
-        const { game, fetchGame } = this.props;
-
-        if(game === undefined){
-            return null;
-        }
-        const icons = [];
-        game.platform.split(', ').forEach(
-            function(plat) {
-                switch (plat) {
-                    case 'Steam':
-                        icons.push(<svg className="icons" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width={18} height={18} viewBox="0 0 24 24"><path d="M 12 2 C 6.82 2 2.5507812 5.95 2.0507812 11 L 7.0195312 13.759766 C 7.5495313 13.289766 8.24 13 9 13 C 9.03 13 9.0500781 13.009766 9.0800781 13.009766 C 9.6800781 12.089766 10.449766 10.919609 11.009766 10.099609 C 11.009766 10.059609 11 10.03 11 10 C 11 8.93 11.419922 7.9299219 12.169922 7.1699219 C 13.679922 5.6599219 16.320078 5.6599219 17.830078 7.1699219 C 18.580078 7.9299219 19 8.93 19 10 C 19 11.07 18.580078 12.070078 17.830078 12.830078 C 17.070078 13.580078 16.07 14 15 14 C 14.97 14 14.930391 13.990234 14.900391 13.990234 C 14.080391 14.550234 12.910234 15.319922 11.990234 15.919922 C 11.990234 15.949922 12 15.97 12 16 C 12 17.66 10.66 19 9 19 C 7.34 19 6 17.66 6 16 C 6 15.83 6.0107812 15.66 6.0507812 15.5 L 2.0898438 13.300781 C 2.7198438 18.210781 6.92 22 12 22 C 17.52 22 22 17.52 22 12 C 22 6.48 17.52 2 12 2 z M 6.0507812 15.5 L 8.5097656 16.869141 C 8.6697656 16.959141 8.83 17 9 17 C 9.35 17 9.6891406 16.810234 9.8691406 16.490234 C 10.139141 16.000234 9.9702344 15.390859 9.4902344 15.130859 L 7.0195312 13.759766 C 6.5095312 14.189766 6.1607813 14.81 6.0507812 15.5 z M 15 8 A 2 2 0 0 0 15 12 A 2 2 0 0 0 15 8 z" /></svg>);
-                        break;
-                    case 'Windows':
-                        icons.push(<svg
-                            className="icons"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="18"
-                            height="18"
-                            x="0"
-                            y="0"
-                            viewBox="0 0 26 26"
-                        >
-                            <path d="M26 0L12 1.969V12h14zM10 2.25L0 3.656V12h10zM0 14v8.406l10 1.375V14zm12 0v10.063l14 1.906V14z"></path>
-                        </svg>)
-                        break;
-                    case 'Nintendo3DS':
-                        icons.push(<svg xmlns="http://www.w3.org/2000/svg"
-                            width="135" height="16"
-                            viewBox="0 0 2171 269">
-                            <path id="Imported Path"
-                                fill="white" stroke="white" stroke-width="1"
-                                d="M 2158.37,238.98
+    const icons = [];
+    game.platform.split(', ').forEach(
+      function (plat) {
+        switch (plat) {
+          case 'Steam':
+            icons.push(<svg className="icons" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width={18} height={18} viewBox="0 0 24 24"><path fill="white" d="M 12 2 C 6.82 2 2.5507812 5.95 2.0507812 11 L 7.0195312 13.759766 C 7.5495313 13.289766 8.24 13 9 13 C 9.03 13 9.0500781 13.009766 9.0800781 13.009766 C 9.6800781 12.089766 10.449766 10.919609 11.009766 10.099609 C 11.009766 10.059609 11 10.03 11 10 C 11 8.93 11.419922 7.9299219 12.169922 7.1699219 C 13.679922 5.6599219 16.320078 5.6599219 17.830078 7.1699219 C 18.580078 7.9299219 19 8.93 19 10 C 19 11.07 18.580078 12.070078 17.830078 12.830078 C 17.070078 13.580078 16.07 14 15 14 C 14.97 14 14.930391 13.990234 14.900391 13.990234 C 14.080391 14.550234 12.910234 15.319922 11.990234 15.919922 C 11.990234 15.949922 12 15.97 12 16 C 12 17.66 10.66 19 9 19 C 7.34 19 6 17.66 6 16 C 6 15.83 6.0107812 15.66 6.0507812 15.5 L 2.0898438 13.300781 C 2.7198438 18.210781 6.92 22 12 22 C 17.52 22 22 17.52 22 12 C 22 6.48 17.52 2 12 2 z M 6.0507812 15.5 L 8.5097656 16.869141 C 8.6697656 16.959141 8.83 17 9 17 C 9.35 17 9.6891406 16.810234 9.8691406 16.490234 C 10.139141 16.000234 9.9702344 15.390859 9.4902344 15.130859 L 7.0195312 13.759766 C 6.5095312 14.189766 6.1607813 14.81 6.0507812 15.5 z M 15 8 A 2 2 0 0 0 15 12 A 2 2 0 0 0 15 8 z" /></svg>);
+            break;
+          case 'Windows':
+            icons.push(<svg
+              className="icons"
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              x="0"
+              y="0"
+              viewBox="0 0 26 26"
+            >
+                <path fill="white" d="M26 0L12 1.969V12h14zM10 2.25L0 3.656V12h10zM0 14v8.406l10 1.375V14zm12 0v10.063l14 1.906V14z"></path>
+            </svg>)
+            break;
+          case 'Nintendo3ds':
+            icons.push(<svg 
+                className="icons"
+                xmlns="http://www.w3.org/2000/svg"
+              width="135" height="16"
+              viewBox="0 0 2171 269">
+              <path id="Imported Path"
+                fill="white" stroke="white" stroke-width="1"
+                d="M 2158.37,238.98
                         C 2158.22,235.36 2158.00,231.00 2158.05,227.23
                             2158.05,227.23 2157.91,227.23 2157.91,227.23
                             2157.00,230.64 2155.84,234.42 2154.59,237.94
@@ -295,15 +232,16 @@ class GameShow extends React.Component {
                             334.08,549.33 76.97,549.33 76.97,549.33
                             76.97,549.33 76.97,496.42 76.97,496.42
                             76.97,496.42 76.97,496.42 76.97,496.42 Z" />
-                        </svg>)
-                        break;
-                    case 'Android':
-                        icons.push(<svg xmlns="http://www.w3.org/2000/svg"
-                            width="18" height="18"
-                            viewBox="0 0 2500 1339">
-                            <path id="Imported Path"
-                                fill="white" stroke="white" stroke-width="1"
-                                d="
+            </svg>)
+            break;
+          case 'Android':
+            icons.push(<svg xmlns="http://www.w3.org/2000/svg"
+                className="icons"
+              width="18" height="18"
+              viewBox="0 0 2500 1339">
+              <path id="Imported Path"
+                fill="white" stroke="white" stroke-width="1"
+                d="
                             M 1573.24,1138.88
                             C 1540.99,1138.88 1514.75,1112.62 1514.75,1080.37
                                 1514.75,1048.12 1540.99,1021.89 1573.24,1021.89
@@ -330,15 +268,16 @@ class GameShow extends React.Component {
                                 705.06,895.74 567.78,1098.94 547.69,1339.00
                                 547.69,1339.00 1952.31,1339.00 1952.31,1339.00
                                 1932.21,1098.94 1794.92,895.74 1594.22,786.57" />
-                        </svg>)
-                        break;
-                    case 'Mac':
-                        icons.push(<svg xmlns="http://www.w3.org/2000/svg"
-                            width="18" height="18"
-                            viewBox="0 0 14 14">
-                            <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
-                                d="M 9.06,2.24
+            </svg>)
+            break;
+          case 'Mac':
+            icons.push(<svg xmlns="http://www.w3.org/2000/svg"
+                className="icons"
+              width="18" height="18"
+              viewBox="0 0 14 14">
+              <path id="Imported Path"
+                fill="white" stroke="none" stroke-width="1"
+                d="M 9.06,2.24
                             C 9.55,1.64 9.88,0.82 9.79,0.00
                                 9.08,0.03 8.23,0.47 7.72,1.06
                                 7.27,1.58 6.88,2.42 6.98,3.23
@@ -356,15 +295,16 @@ class GameShow extends React.Component {
                                 10.54,13.96 11.15,13.11 11.73,12.26
                                 12.40,11.28 12.68,10.32 12.70,10.27
                                 12.68,10.26 10.84,9.56 10.82,7.44 Z" />
-                        </svg>)
-                        break;
-                    case 'Linux':
-                        icons.push(<svg xmlns="http://www.w3.org/2000/svg"
-                            width="18" height="18"
-                            viewBox="0 0 305 305">
-                            <path id="XMLID_92_"
-                                fill="white" stroke="white" stroke-width="1"
-                                d="M 274.66,244.89
+            </svg>)
+            break;
+          case 'Linux':
+            icons.push(<svg xmlns="http://www.w3.org/2000/svg"
+                className="icons"
+              width="18" height="18"
+              viewBox="0 0 305 305">
+              <path id="XMLID_92_"
+                fill="white" stroke="white" stroke-width="1"
+                d="M 274.66,244.89
                                     C 265.72,241.23 261.89,236.37 262.26,229.11
                                       262.64,220.65 257.84,214.45 255.56,212.00
                                       256.94,206.73 260.96,188.52 255.56,172.70
@@ -496,15 +436,16 @@ class GameShow extends React.Component {
                                       36.33,270.45 37.54,266.65 38.61,263.29
                                       39.38,260.87 40.17,258.38 40.61,255.77
                                       41.23,251.60 40.50,248.20 39.92,245.48 Z" />
-                        </svg>)
-                        break;
-                    case 'Epic':
-                        icons.push(<svg xmlns="http://www.w3.org/2000/svg"
-                            width="18" height="18"
-                            viewBox="0 0 48 48">
-                            <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
-                                d="M 16.60,30.13
+            </svg>)
+            break;
+          case 'Epic':
+            icons.push(<svg xmlns="http://www.w3.org/2000/svg"
+                className="icons"
+              width="18" height="18"
+              viewBox="0 0 48 48">
+              <path id="Imported Path"
+                fill="white" stroke="none" stroke-width="1"
+                d="M 16.60,30.13
                                 C 16.60,30.13 16.54,30.13 16.54,30.13
                                 16.54,30.13 16.48,30.13 16.48,30.13
                                 16.48,30.13 16.42,30.13 16.42,30.13
@@ -2593,15 +2534,16 @@ class GameShow extends React.Component {
                                 38.10,6.00 39.00,6.90 39.00,8.00
                                 39.00,8.00 39.00,35.73 39.00,35.73
                                 39.00,36.50 38.55,37.21 37.85,37.54 Z" />
-                        </svg>)
-                        break;
-                    case 'NewNintendo3DS':
-                        icons.push(<svg xmlns="http://www.w3.org/2000/svg"
-                            width="75" height="16"
-                            viewBox="0 0 2300 510">
-                            <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
-                                d="M 375.77,41.88
+            </svg>)
+            break;
+          case 'NewNintendo3DS':
+            icons.push(<svg xmlns="http://www.w3.org/2000/svg"
+                className="icons"
+              width="75" height="16"
+              viewBox="0 0 2300 510">
+              <path id="Imported Path"
+                fill="white" stroke="none" stroke-width="1"
+                d="M 375.77,41.88
                             C 329.82,41.88 292.57,78.65 292.57,123.99
                                 292.57,169.34 329.82,206.10 375.77,206.10
                                 407.06,206.10 435.71,188.77 449.91,161.26
@@ -2925,15 +2867,16 @@ class GameShow extends React.Component {
                                 334.06,549.92 76.97,549.92 76.97,549.92
                                 76.97,549.92 76.97,496.96 76.97,496.96
                                 76.97,496.96 76.97,496.96 76.97,496.96 Z" />
-                        </svg>)
-                        break;
-                    case 'Oculus':
-                        icons.push(<svg xmlns="http://www.w3.org/2000/svg"
-                            width="18" height="18"
-                            viewBox="0 0 356 217">
-                            <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
-                                d="M 711.52,105.90
+            </svg>)
+            break;
+          case 'Oculus':
+            icons.push(<svg xmlns="http://www.w3.org/2000/svg"
+                className="icons"
+              width="18" height="18"
+              viewBox="0 0 356 217">
+              <path id="Imported Path"
+                fill="white" stroke="none" stroke-width="1"
+                d="M 711.52,105.90
                                 C 711.52,108.44 711.52,110.99 711.37,113.40
                                     711.23,114.95 711.09,116.65 710.81,118.21
                                     710.24,121.18 709.25,124.01 707.69,126.56
@@ -3125,15 +3068,16 @@ class GameShow extends React.Component {
                                     512.26,99.67 512.68,101.37 512.96,103.07
                                     513.25,104.91 513.39,106.74 513.39,108.58
                                     513.25,110.57 513.10,112.26 512.82,114.10 Z" />
-                        </svg>)
-                        break;
-                    case 'Vive':
-                        icons.push(<svg xmlns="http://www.w3.org/2000/svg"
-                            width="18" height="18"
-                            viewBox="0 0 111 98">
-                            <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
-                                d="M 401.68,20.59
+            </svg>)
+            break;
+          case 'Vive':
+            icons.push(<svg xmlns="http://www.w3.org/2000/svg"
+                className="icons"
+              width="18" height="18"
+              viewBox="0 0 111 98">
+              <path id="Imported Path"
+                fill="white" stroke="none" stroke-width="1"
+                d="M 401.68,20.59
                                 C 401.68,20.59 400.89,21.96 400.89,21.96
                                     400.89,21.96 400.09,20.59 400.09,20.59
                                     400.09,20.59 399.77,20.59 399.77,20.59
@@ -3273,15 +3217,16 @@ class GameShow extends React.Component {
                                     43.98,82.98 32.23,80.62 28.31,73.81
                                     20.46,60.19 42.48,26.21 55.73,26.21
                                     55.73,26.21 55.73,26.21 55.73,26.21 Z" />
-                        </svg>)
-                        break;
-                    case 'WindowsMixedReality':
-                        icons.push(<svg xmlns="http://www.w3.org/2000/svg"
-                            width="18" height="18"
-                            viewBox="0 0 166 153">
-                            <path id="path0"
-                                fill="white" stroke="none" stroke-width="1"
-                                d="M 48.01,1.55
+            </svg>)
+            break;
+          case 'WindowsMixedReality':
+            icons.push(<svg xmlns="http://www.w3.org/2000/svg"
+                className="icons"
+              width="18" height="18"
+              viewBox="0 0 166 153">
+              <path id="path0"
+                fill="white" stroke="none" stroke-width="1"
+                d="M 48.01,1.55
                                     C 26.59,3.41 9.60,8.10 4.17,13.65
                                         4.17,13.65 0.55,17.35 0.55,17.35
                                         0.55,17.35 0.69,36.90 0.69,36.90
@@ -3542,15 +3487,16 @@ class GameShow extends React.Component {
                                     C 85.28,285.37 80.19,289.08 76.11,287.22
                                         70.73,284.77 72.56,278.51 79.00,277.32
                                         85.77,276.08 86.19,276.25 85.80,280.15" />
-                        </svg>)
-                        break;
-                    case 'Switch':
-                        icons.push(<svg xmlns="http://www.w3.org/2000/svg"
-                            width="76" height="16"
-                            viewBox="0 0 490 107">
-                            <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
-                                d="M 436.82,76.04
+            </svg>)
+            break;
+          case 'Nintendo Switch':
+            icons.push(<svg xmlns="http://www.w3.org/2000/svg"
+                className="icons switch-icon"
+              width="76" height="16"
+              viewBox="0 0 490 107">
+              <path id="Imported Path"
+                fill="white" stroke="none" stroke-width="1"
+                d="M 436.82,76.04
                         C 436.82,76.04 436.82,104.97 436.82,104.97
                             436.82,104.97 442.93,104.97 442.93,104.97
                             442.93,104.97 449.04,104.97 449.04,104.97
@@ -3869,174 +3815,40 @@ class GameShow extends React.Component {
                             33.99,9.46 42.46,9.44 42.46,9.44
                             42.46,9.44 42.46,53.74 42.46,53.74
                             42.46,53.74 42.47,53.74 42.47,53.74 Z" />
-                        </svg>)
-                        break;
-                }
-            }
-        )
+            </svg>)
+            break;
+        }
+      }
+    )
 
-        this.sources = game.photoUrls.slice(1);
-        // this.sources = this.sources.concat(game.photoUrls.slice(1));
-
-        this.shift = (this.width / this.containerWidth) * 106
-        this.conLen = this.shift * this.sources.length;
-
-        let items = this.sources.map((source, index) =>
-            <Slide className="slide"
-                key={'slide' + index}
-                src={source}
-                selected={(this.state.index === index) ? true : false}
-                index={index}
-                height={this.height}
-                width={this.width}
-            />
-        );
-
-        items = items.concat(items).concat(items);
-
-        let { index, delta } = this.state;
-        let length = this.sources.length;
-
-        let mainImg = this.sources[index];
-
-        let tabs = this.sources.map((_, index) => {
-            let selected = (this.state.index === index)
-                ? ' selected'
-                : ''
-
-            return (
-                <div
-                    onClick={this.handleClick}
-                    className={"tab" + selected}
-                    style={{ width: `${100 / length - 0.5}%` }}
-                    key={"tab" + index}
-                    data-index={index}
-                ></div>
-            );
-        });
-
-        return (
-            <div className="game-show">
-                <div className="showcase-container">
-                    <div className="showcase">
-                        <p className="game-title">{game.title}</p>
-                        <div className="showcase-info">
-                            <img className="large-showcase" src={`${mainImg}`} alt="mainImage" />
-                            <div className="small-showcase">
-                                <img className="small-img-showcase" src={game.photoUrls[0]}/>
-                                <div className="pricing">
-                                    <p className="game-platform">
-                                        {icons.map((icon, index) => (
-                                            <p key={index}>{icon}</p>
-                                        ))}
-                                    </p>
-                                    <div className="prices">
-                                        <p className="game-sale">-{game.sale}% off</p>
-                                        <p className="game-price">${(game.price * (1 - game.sale * .01)).toFixed(2)}</p>
-                                    </div>
-                                    <button className="add-to-cart" >
-                                        <i className="fa fa-shopping-cart"></i>Add To Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="slider-container">
-                            <span className="goLeft sliderButtons" onClick={this.goLeft}>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="1em"
-                                    height="1em"
-                                    ariaHidden="true"
-                                    style={{ MsTransform: "rotate(360deg)" }}
-                                    transform="rotate(360)"
-                                    viewBox="0 0 20 20"
-                                >
-                                    <path fill="#FFFFFF" d="M14 5l-5 5 5 5-1 2-7-7 7-7z"></path>
-                                </svg>
-                            </span>
-                            <div
-                                className="sliderDiv"
-                                style={{ width: `${this.containerWidth + 5}px` }}
-                            >
-
-                                <div
-                                    className="slider"
-                                    onClick={this.handleClick}
-                                    style={{ transform: `translate(${delta}px)` }}
-                                    style={{ transform: `translate(${delta}%)` }}
-                                >
-                                    {items}
-                                </div>
-                            </div>
-                            <span className="goRight sliderButtons" onClick={this.goRight}>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="1em"
-                                    height="1em"
-                                    ariaHidden="true"
-                                    style={{ MsTransform: "rotate(360deg)" }}
-                                    transform="rotate(180)"
-                                    viewBox="0 0 20 20"
-                                >
-                                    <path fill="#FFFFFF" d="M14 5l-5 5 5 5-1 2-7-7 7-7z"></path>
-                                </svg>
-                            </span>
-                        </div>
-                        
+    return (
+      <li className="game-list-item">
+        <div className="game-card">
+            <div className="game-info">
+                    <a class="game-store-link" href={`/#/games/${game.id}`} >
+                        <img className="game-cover" src={game.photoUrls[0]} />
+                    </a>
+                <div className="game-title">{title}</div>
+            </div>
+            <div className="game-details">
+                <p className="platforms">
+                    {icons.map((icon, index) => (
+                        <p key={index}>{icon}</p>
+                    ))}
+                </p>
+                    <div className="price-container">
+                        <p className="sale-card">-{game.sale}%</p>
+                        <div className="price-display">
+                            <span className="price" >${(game.price * (1 - game.sale * .01)).toFixed(2)}</span>
+                            <span className="add-cart">Add</span>
+                            <span className="buy-cart">Buy</span>
                     </div>
                 </div>
-                <div className="details-container">
-                    <div className="details">
-                        <div className="col">
-                            <label>Platform
-                                <p className="game-platform">
-                                    {icons.map((icon, index) => (
-                                        <p key={index}>{icon}</p>
-                                    ))}
-                                </p>
-                            </label>
-                            <label>Operating System
-                                <p className="game-operating-system">{game.operating_system}</p>
-                            </label>
-                            <label>Genre
-                                <p className="game-genre">Genre</p>
-                            </label>
-                        </div>
-                        <div className="col">
-                            <label>Developer
-                                <p className="game-developer">{game.developer}</p>
-                            </label>
-                            <label>Publisher
-                                <p className="game-publisher">{game.publisher}</p>
-                            </label>
-                            <label>System Requirements
-                                <p className="game-system-requirements" onClick={() => {
-                                    this.scrollDiv.current.scrollIntoView({ behavior: 'smooth' });
-                                }}>Learn More</p>
-                            </label>
-                        </div>
-                        <div className="col">
-                            <label>Links
-                                <p className="game-links">{game.links}</p>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div className="description-container">
-                    <div className="description">
-                        <label>Description
-                            <p className="game-description">{game.description}</p>
-                        </label>
-                    </div>
-                </div>
-                <div className="system-requirements-container">
-                    <div className="system-requirements">
-                        <label>SYSTEM REQUIREMENTS</label>
-                        <p className="game-system-requirements" ref={this.scrollDiv}>{game.system_requirements}</p>
-                    </div>                
-                </div>
-            </div>  
-        )
-    }
+          </div>
+        </div>
+      </li>
+    );
+  }
 }
 
-export default GameShow;
+export default GameListItem;

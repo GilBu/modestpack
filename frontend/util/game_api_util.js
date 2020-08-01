@@ -1,8 +1,7 @@
-export const fetchGames = data => {
+export const fetchGames = () => {
     return $.ajax({
         method: 'GET',
-        url: 'api/games',
-        data
+        url: 'api/games'
     })
 }
 
