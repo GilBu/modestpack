@@ -169,9 +169,63 @@ Factorio is a super duper awesome game where we use conveyor belts to shoot alie
     operating_system: "Windows, Mac, Linux",
     developer: "Wube Software LTD.",
     publisher: "Wube Software LTD.",
-    system_requirements: "Platform: Nintendo Switch 
-Supported Languages: English",
-    links: "http://www.factorio.com/"
+    system_requirements: "Minimum:
+
+Windows
+OS: Windows 10, 8, 7, Vista (64 Bit)
+Processor: Dual core 3Ghz+
+Memory: 4 GB RAM
+Graphics: DirectX 10.1 capable GPU with 512 MB VRAM - GeForce GTX 260, Radeon HD 4850 or Intel HD Graphics 5500
+DirectX: Version 11
+Storage: 3 GB available space
+Additional Notes: Normal sprite resolution, Low quality compression
+
+Mac
+OS: macOS Catalina, Mojave, High Sierra, Sierra, OSX El Capitan, Yosemite
+Processor: Dual core 3Ghz+
+Memory: 4 GB RAM
+Graphics: 2012 Mac
+Storage: 3 GB available space
+Additional Notes: Normal sprite resolution, Low quality compression
+
+Linux
+OS: Linux (tarball installation)
+Processor: Dual core 3Ghz+
+Memory: 4 GB RAM
+Graphics: OpenGL 3.3 core, DirectX 10.1 capable GPU with 512 MB VRAM - GeForce GTX 260, Radeon HD 4850 or Intel HD Graphics 5500
+Storage: 3 GB available space
+Sound Card: PulseAudio
+Additional Notes: Normal sprite resolution, Low quality compression
+
+Recommended:
+
+Windows
+OS: Windows 10, 8, 7 (64 Bit)
+Processor: Quad core 3Ghz+
+Memory: 8 GB RAM
+Graphics: DirectX 11 capable GPU with 2 GB VRAM - GeForce GTX 750 Ti, Radeon R7 360
+DirectX: Version 11
+Storage: 3 GB available space
+Additional Notes: High sprite resolution, High quality compression
+
+Mac
+OS: macOS Catalina, Mojave, High Sierra, Sierra, OSX El Capitan, Yosemite
+Processor: Quad core 3GHz+
+Memory: 8 GB RAM
+Graphics: 2015 Mac with dedicated GPU with 2 GB VRAM.
+Storage: 3 GB available space
+Additional Notes: High sprite resolution, High quality compression
+
+Linux
+OS: Linux (tarball installation)
+Processor: Quad core 3GHz+
+Memory: 8 GB RAM
+Graphics: OpenGL 4.3 core, DirectX 11 capable GPU with 2 GB VRAM - GeForce GTX 750 Ti, Radeon R7 360
+Storage: 3 GB available space
+Sound Card: PulseAudio
+Additional Notes: High sprite resolution, High quality compression
+
+Supported Languages: English, French, Italian, German, Spanish - Spain, Hungarian, Dutch, Norwegian, Polish, Portuguese, Portuguese - Brazil, Romanian, Finnish, Swedish, Czech, Russian, Ukrainian, Japanese, Simplified Chinese, Traditional Chinese, Korean"
 )
 
 file = open('https://modest-pack-seeds.s3-us-west-1.amazonaws.com/factorio/cover_art.jpeg')
