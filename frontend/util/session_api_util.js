@@ -20,3 +20,20 @@ export const logout = user => (
         url: '/api/session'
     })
 )
+
+export const fetchCurrentUser = (callback) => (
+    $.ajax({
+        url: "api/session",
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            UserActions.receiveCurrentUser(data.user);
+            if (data.user.id) {
+                CartActions.receiveCart(data.cart);
+            } else {
+                CartApiUtils.fetchCookieCart();
+                callback && callback();
+            }
+        },
+    })
+)

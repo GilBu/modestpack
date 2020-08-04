@@ -44,11 +44,10 @@ def update_shopping_cart(items)
     items.each do |item|
       game = shopping_cart_items.find_by_game_id(item["game_id"])
       if game
-        game.update(quantity: item["quantity"])
+        console.log("already in cart")
       else
         shopping_cart_items.create!(
-          game_id: item["game_id"],
-          quantity: item["quantity"]
+          game_id: item["game_id"]
           )
       end
     end
@@ -60,16 +59,16 @@ def update_shopping_cart(items)
 
   def filter_duplicates(items)
     items.reduce({}) do |accum, item|
-      if !accum[item["game_id"]] || accum[item["game_id"]] < item["quantity"]
-        accum[item["game_id"]] = item["quantity"]
+      if !accum[item["game_id"]]
+        accum[item["game_id"]] = true
       end
       accum
     end
   end
 
   def temporary_shopping_cart(unique_cart_items)
-    unique_cart_items.each do |game_id, quantity|
-      shopping_cart_items.new(game_id: game_id, quantity: quantity).game.images.load
+    unique_cart_items.each do |game_id|
+      shopping_cart_items.new(game_id: game_id)
     end
     shopping_cart_items
   end
