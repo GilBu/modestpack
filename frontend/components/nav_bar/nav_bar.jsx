@@ -12,6 +12,7 @@ const NavBar = ({ currentUser, logout, openModal, demoLogin }) => {
 
     const personalNavBar = () => (
         <hgroup className="header-group">
+            <a className="cart-button" onClick={() => openModal('cart')}>Cart</a>
             <h2 className="header-name">Hi, {currentUser.username}!</h2>
             <button className="header-button" onClick={logout}>Log out</button>
         </hgroup>

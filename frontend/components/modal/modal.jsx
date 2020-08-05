@@ -20,6 +20,9 @@ function Modal({ modal, closeModal }) {
         case 'selection':
             component = <SelectionContainer />;
             break;
+        case 'cart':
+            component = <CartItemContainer />;
+            break;
         default:
             return null;
     }
