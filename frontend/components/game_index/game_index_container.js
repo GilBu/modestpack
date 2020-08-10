@@ -5,7 +5,6 @@ import GameIndex from './game_index';
 import {allGames} from '../../reducers/selectors';
 
 const mSTP = (state, ownProps) => {
-  debugger;
   return {
     // games: Object.values(state.entities.games)
     search: ownProps.search

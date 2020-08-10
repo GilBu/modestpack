@@ -6,13 +6,10 @@ import {
 } from 'react-router-dom';
 
 import GameShowContainer from './game_show/game_show_container'
-
 import NavBarContainer from './nav_bar/nav_bar_container';
-import SignUpFormContainer from './session_form/signup_form_container';
-import LogInFormContainer from './session_form/login_form_container';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './modal/modal';
 import GameIndexContainer from './game_index/game_index_container';
+import Search from './search/search';
 
 class App extends React.Component {
 
@@ -21,21 +18,23 @@ class App extends React.Component {
         this.state = {
             search: ""
         }
+        this.searchSpace = this.searchSpace.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchGames();
     }
 
-    searchSpace (e, keyword) {
-        e.preventDefault();
-        this.setState({ search: keyword })
+    searchSpace (text) {
+        this.setState({ search: text })
+        console.log(this.state.search)
     }
 
-    render () {
-        debugger;
-        let {games} = this.props;
+    
 
+    render () {
+        let {games} = this.props;
+        const search = this.state.search;
         games = games.filter(game => {
             if (this.state.search == "")
                 return game
@@ -52,6 +51,7 @@ class App extends React.Component {
                         <Link to="/" className="nav-link">
                             <h1>Modest Pack</h1>
                         </Link>
+                        <Search search={search} searchSpace={this.searchSpace}/>
                         <NavBarContainer />
                     </nav>
                 </div>

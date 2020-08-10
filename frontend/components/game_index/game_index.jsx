@@ -27,7 +27,6 @@ class GameIndex extends React.Component {
     //       game={game} />
     //   )
     // });
-    debugger;
     const gameItems = games.map(game => {
       return (
         <GameListItem 
