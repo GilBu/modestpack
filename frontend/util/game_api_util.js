@@ -11,3 +11,11 @@ export const fetchGame = id => {
         url: `api/games/${id}`
     })
 }
+
+export const searchGames = keyword => {
+    return $.ajax({
+        method: 'GET',
+        url: `api/games/`,
+        data: { keyword }
+    })
+}

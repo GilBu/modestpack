@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Search from '../search/search';
 
 const NavBar = ({ currentUser, logout, openModal, demoLogin }) => {
 
     const sessionLinks = () => (
         <nav className = "login-signup">
+            {/* <Search searchSpace={this.props.searchSpace}/> */}
             <a className="login-button" onClick={() => openModal('login')}>Log In</a>
             <a className="signup-button" onClick={() => openModal('signup')}>Sign Up</a>
         </nav>
@@ -12,6 +14,7 @@ const NavBar = ({ currentUser, logout, openModal, demoLogin }) => {
 
     const personalNavBar = () => (
         <hgroup className="header-group">
+            {/* <Search searchSpace={this.props.searchSpace}/> */}
             <h2 className="header-name">Hi, {currentUser.username}!</h2>
             <button className="header-button" onClick={logout}>Log out</button>
         </hgroup>

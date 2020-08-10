@@ -480,7 +480,7 @@ In addition to traditional multiplayer modes, cooperate and compete with your fr
 A CIV FOR ALL PLAYERS:
 Civilization VI provides veteran players new ways to build and tune their civilization for the greatest chance of success. New tutorial systems introduce new players to the underlying concepts so they can easily get started.",
     sale: 15,
-    platform: "Steam, Windows, Mac, Android, Epic, Windows, Mac, Android",
+    platform: "Epic, Steam, Windows, Mac, Android",
     operating_system: "Windows, Android, Mac",
     developer: "Firaxis, Aspyr (Mac)",
     publisher: "2K, Aspyr (Mac)",
