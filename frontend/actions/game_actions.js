@@ -24,3 +24,9 @@ export const fetchGame = id => dispatch => (
         dispatch(receiveGame(payload))
     ))
 );
+
+export const searchGames = keyword => dispatch => (
+    APIUtil.searchGames(keyword).then(games => (
+            dispatch(receiveGames(games))
+        ))
+);

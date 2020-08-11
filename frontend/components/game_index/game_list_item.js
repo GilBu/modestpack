@@ -29,14 +29,14 @@ class GameListItem extends React.Component {
                 <path fill="white" d="M26 0L12 1.969V12h14zM10 2.25L0 3.656V12h10zM0 14v8.406l10 1.375V14zm12 0v10.063l14 1.906V14z"></path>
             </svg>)
             break;
-          case 'Nintendo3ds':
+          case 'Nintendo3DS':
             icons.push(<svg 
                 className="icons"
                 xmlns="http://www.w3.org/2000/svg"
-              width="135" height="16"
+              width="75" height="16"
               viewBox="0 0 2171 269">
               <path id="Imported Path"
-                fill="white" stroke="white" stroke-width="1"
+                fill="white" stroke="white" strokeWidth="1"
                 d="M 2158.37,238.98
                         C 2158.22,235.36 2158.00,231.00 2158.05,227.23
                             2158.05,227.23 2157.91,227.23 2157.91,227.23
@@ -240,7 +240,7 @@ class GameListItem extends React.Component {
               width="18" height="18"
               viewBox="0 0 2500 1339">
               <path id="Imported Path"
-                fill="white" stroke="white" stroke-width="1"
+                fill="white" stroke="white" strokeWidth="1"
                 d="
                             M 1573.24,1138.88
                             C 1540.99,1138.88 1514.75,1112.62 1514.75,1080.37
@@ -276,7 +276,7 @@ class GameListItem extends React.Component {
               width="18" height="18"
               viewBox="0 0 14 14">
               <path id="Imported Path"
-                fill="white" stroke="none" stroke-width="1"
+                fill="white" stroke="none" strokeWidth="1"
                 d="M 9.06,2.24
                             C 9.55,1.64 9.88,0.82 9.79,0.00
                                 9.08,0.03 8.23,0.47 7.72,1.06
@@ -303,7 +303,7 @@ class GameListItem extends React.Component {
               width="18" height="18"
               viewBox="0 0 305 305">
               <path id="XMLID_92_"
-                fill="white" stroke="white" stroke-width="1"
+                fill="white" stroke="white" strokeWidth="1"
                 d="M 274.66,244.89
                                     C 265.72,241.23 261.89,236.37 262.26,229.11
                                       262.64,220.65 257.84,214.45 255.56,212.00
@@ -444,7 +444,7 @@ class GameListItem extends React.Component {
               width="18" height="18"
               viewBox="0 0 48 48">
               <path id="Imported Path"
-                fill="white" stroke="none" stroke-width="1"
+                fill="white" stroke="none" strokeWidth="1"
                 d="M 16.60,30.13
                                 C 16.60,30.13 16.54,30.13 16.54,30.13
                                 16.54,30.13 16.48,30.13 16.48,30.13
@@ -2542,7 +2542,7 @@ class GameListItem extends React.Component {
               width="75" height="16"
               viewBox="0 0 2300 510">
               <path id="Imported Path"
-                fill="white" stroke="none" stroke-width="1"
+                fill="white" stroke="none" strokeWidth="1"
                 d="M 375.77,41.88
                             C 329.82,41.88 292.57,78.65 292.57,123.99
                                 292.57,169.34 329.82,206.10 375.77,206.10
@@ -2875,7 +2875,7 @@ class GameListItem extends React.Component {
               width="18" height="18"
               viewBox="0 0 356 217">
               <path id="Imported Path"
-                fill="white" stroke="none" stroke-width="1"
+                fill="white" stroke="none" strokeWidth="1"
                 d="M 711.52,105.90
                                 C 711.52,108.44 711.52,110.99 711.37,113.40
                                     711.23,114.95 711.09,116.65 710.81,118.21
@@ -3076,7 +3076,7 @@ class GameListItem extends React.Component {
               width="18" height="18"
               viewBox="0 0 111 98">
               <path id="Imported Path"
-                fill="white" stroke="none" stroke-width="1"
+                fill="white" stroke="none" strokeWidth="1"
                 d="M 401.68,20.59
                                 C 401.68,20.59 400.89,21.96 400.89,21.96
                                     400.89,21.96 400.09,20.59 400.09,20.59
@@ -3225,7 +3225,7 @@ class GameListItem extends React.Component {
               width="18" height="18"
               viewBox="0 0 166 153">
               <path id="path0"
-                fill="white" stroke="none" stroke-width="1"
+                fill="white" stroke="none" strokeWidth="1"
                 d="M 48.01,1.55
                                     C 26.59,3.41 9.60,8.10 4.17,13.65
                                         4.17,13.65 0.55,17.35 0.55,17.35
@@ -3495,7 +3495,7 @@ class GameListItem extends React.Component {
               width="76" height="16"
               viewBox="0 0 490 107">
               <path id="Imported Path"
-                fill="white" stroke="none" stroke-width="1"
+                fill="white" stroke="none" strokeWidth="1"
                 d="M 436.82,76.04
                         C 436.82,76.04 436.82,104.97 436.82,104.97
                             436.82,104.97 442.93,104.97 442.93,104.97
@@ -3825,7 +3825,7 @@ class GameListItem extends React.Component {
       <li className="game-list-item">
         <div className="game-card">
             <div className="game-info">
-                    <a class="game-store-link" href={`/#/games/${game.id}`} >
+                    <a className="game-store-link" href={`/#/games/${game.id}`} >
                         <img className="game-cover" src={game.photoUrls[0]} />
                     </a>
                 <div className="game-title">{title}</div>
@@ -3833,7 +3833,7 @@ class GameListItem extends React.Component {
             <div className="game-details">
                 <p className="platforms">
                     {icons.map((icon, index) => (
-                        <p key={index}>{icon}</p>
+                        <a key={index}>{icon}</a>
                     ))}
                 </p>
                     <div className="price-container">

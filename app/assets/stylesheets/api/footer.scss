@@ -1,0 +1,11 @@
+.footer-container {
+  background-color: #2f333d;
+  min-height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.footer-container > a {
+  margin: 30px;
+}
