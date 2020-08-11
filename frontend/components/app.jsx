@@ -10,6 +10,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import Modal from './modal/modal';
 import GameIndexContainer from './game_index/game_index_container';
 import Search from './search/search';
+import Footer from './footer/footer';
 
 class App extends React.Component {
 
@@ -45,20 +46,23 @@ class App extends React.Component {
 
         return (
             <div>
-                <div className="nav-container">
-                    <Modal />
-                    <nav className="nav-content">
-                        <Link to="/" className="nav-link">
-                            <h1>Modest Pack</h1>
-                        </Link>
-                        <Search search={search} searchSpace={this.searchSpace}/>
-                        <NavBarContainer />
-                    </nav>
+                <div className="main-page">
+                    <div className="nav-container">
+                        <Modal />
+                        <nav className="nav-content">
+                            <Link to="/" className="nav-link">
+                                <h1>Modest Pack</h1>
+                            </Link>
+                            <Search search={search} searchSpace={this.searchSpace}/>
+                            <NavBarContainer />
+                        </nav>
+                    </div>
+                    <Switch>
+                        <Route path="/games/:gameId" component={GameShowContainer} />
+                        <Route path="/" component={() => <GameIndexContainer className="game-index" games={games} search={this.props.search == null ? "" : this.props.search} />} />
+                    </Switch>
                 </div>
-                <Switch>
-                    <Route path="/games/:gameId" component={GameShowContainer} />
-                    <Route path="/" component={() => <GameIndexContainer games={games} search={this.props.search == null ? "" : this.props.search} />} />
-                </Switch>
+                <Footer/>
             </div>
         );
     }
