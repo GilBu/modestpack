@@ -28,7 +28,6 @@ class App extends React.Component {
 
     searchSpace (text) {
         this.setState({ search: text })
-        console.log(this.state.search)
     }
 
     
@@ -48,7 +47,7 @@ class App extends React.Component {
             <div>
                 <div className="main-page">
                     <div className="nav-container">
-                        <Modal />
+                        <Modal games={this.props.games}/>
                         <nav className="nav-content">
                             <Link to="/" className="nav-link">
                                 <h1>Modest Pack</h1>

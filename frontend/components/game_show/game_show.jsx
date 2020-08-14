@@ -1,5 +1,6 @@
 import React, { Component, createRef } from "react";
 import Slide from '../slider/slide';
+import AddCartContainer from '../add_cart/add_cart_container';
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
 const useMountEffect = (fun) => useEffect(fun, [])
@@ -99,7 +100,7 @@ class GameShow extends React.Component {
                             width="135" height="16"
                             viewBox="0 0 2171 269">
                             <path id="Imported Path"
-                                fill="white" stroke="white" stroke-width="1"
+                                fill="white" stroke="white" strokeWidth="1"
                                 d="M 2158.37,238.98
                         C 2158.22,235.36 2158.00,231.00 2158.05,227.23
                             2158.05,227.23 2157.91,227.23 2157.91,227.23
@@ -302,7 +303,7 @@ class GameShow extends React.Component {
                             width="18" height="18"
                             viewBox="0 0 2500 1339">
                             <path id="Imported Path"
-                                fill="white" stroke="white" stroke-width="1"
+                                fill="white" stroke="white" strokeWidth="1"
                                 d="
                             M 1573.24,1138.88
                             C 1540.99,1138.88 1514.75,1112.62 1514.75,1080.37
@@ -337,7 +338,7 @@ class GameShow extends React.Component {
                             width="18" height="18"
                             viewBox="0 0 14 14">
                             <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
+                                fill="white" stroke="none" strokeWidth="1"
                                 d="M 9.06,2.24
                             C 9.55,1.64 9.88,0.82 9.79,0.00
                                 9.08,0.03 8.23,0.47 7.72,1.06
@@ -363,7 +364,7 @@ class GameShow extends React.Component {
                             width="18" height="18"
                             viewBox="0 0 305 305">
                             <path id="XMLID_92_"
-                                fill="white" stroke="white" stroke-width="1"
+                                fill="white" stroke="white" strokeWidth="1"
                                 d="M 274.66,244.89
                                     C 265.72,241.23 261.89,236.37 262.26,229.11
                                       262.64,220.65 257.84,214.45 255.56,212.00
@@ -503,7 +504,7 @@ class GameShow extends React.Component {
                             width="18" height="18"
                             viewBox="0 0 48 48">
                             <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
+                                fill="white" stroke="none" strokeWidth="1"
                                 d="M 16.60,30.13
                                 C 16.60,30.13 16.54,30.13 16.54,30.13
                                 16.54,30.13 16.48,30.13 16.48,30.13
@@ -2600,7 +2601,7 @@ class GameShow extends React.Component {
                             width="75" height="16"
                             viewBox="0 0 2300 510">
                             <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
+                                fill="white" stroke="none" strokeWidth="1"
                                 d="M 375.77,41.88
                             C 329.82,41.88 292.57,78.65 292.57,123.99
                                 292.57,169.34 329.82,206.10 375.77,206.10
@@ -2932,7 +2933,7 @@ class GameShow extends React.Component {
                             width="18" height="18"
                             viewBox="0 0 356 217">
                             <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
+                                fill="white" stroke="none" strokeWidth="1"
                                 d="M 711.52,105.90
                                 C 711.52,108.44 711.52,110.99 711.37,113.40
                                     711.23,114.95 711.09,116.65 710.81,118.21
@@ -3132,7 +3133,7 @@ class GameShow extends React.Component {
                             width="18" height="18"
                             viewBox="0 0 111 98">
                             <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
+                                fill="white" stroke="none" strokeWidth="1"
                                 d="M 401.68,20.59
                                 C 401.68,20.59 400.89,21.96 400.89,21.96
                                     400.89,21.96 400.09,20.59 400.09,20.59
@@ -3280,7 +3281,7 @@ class GameShow extends React.Component {
                             width="18" height="18"
                             viewBox="0 0 166 153">
                             <path id="path0"
-                                fill="white" stroke="none" stroke-width="1"
+                                fill="white" stroke="none" strokeWidth="1"
                                 d="M 48.01,1.55
                                     C 26.59,3.41 9.60,8.10 4.17,13.65
                                         4.17,13.65 0.55,17.35 0.55,17.35
@@ -3549,7 +3550,7 @@ class GameShow extends React.Component {
                             width="76" height="16"
                             viewBox="0 0 490 107">
                             <path id="Imported Path"
-                                fill="white" stroke="none" stroke-width="1"
+                                fill="white" stroke="none" strokeWidth="1"
                                 d="M 436.82,76.04
                         C 436.82,76.04 436.82,104.97 436.82,104.97
                             436.82,104.97 442.93,104.97 442.93,104.97
@@ -3876,7 +3877,6 @@ class GameShow extends React.Component {
         )
 
         this.sources = game.photoUrls.slice(1);
-        // this.sources = this.sources.concat(game.photoUrls.slice(1));
 
         this.shift = (this.width / this.containerWidth) * 106
         this.conLen = this.shift * this.sources.length;
@@ -3927,15 +3927,16 @@ class GameShow extends React.Component {
                                 <div className="pricing">
                                     <p className="game-platform">
                                         {icons.map((icon, index) => (
-                                            <p key={index}>{icon}</p>
+                                            <a key={index}>{icon}</a>
                                         ))}
                                     </p>
                                     <div className="prices">
                                         <p className="game-sale">-{game.sale}% off</p>
                                         <p className="game-price">${(game.price * (1 - game.sale * .01)).toFixed(2)}</p>
                                     </div>
-                                    <button className="add-to-cart" >
-                                        <i className="fa fa-shopping-cart"></i>Add To Cart</button>
+                                    <AddCartContainer className="add-to-cart" game={game} >
+                                        <i className="fa fa-shopping-cart"></i>Add To Cart
+                                    </AddCartContainer>
                                 </div>
                             </div>
                         </div>
@@ -3945,7 +3946,6 @@ class GameShow extends React.Component {
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="1em"
                                     height="1em"
-                                    ariaHidden="true"
                                     style={{ MsTransform: "rotate(360deg)" }}
                                     transform="rotate(360)"
                                     viewBox="0 0 20 20"
@@ -3972,7 +3972,6 @@ class GameShow extends React.Component {
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="1em"
                                     height="1em"
-                                    ariaHidden="true"
                                     style={{ MsTransform: "rotate(360deg)" }}
                                     transform="rotate(180)"
                                     viewBox="0 0 20 20"

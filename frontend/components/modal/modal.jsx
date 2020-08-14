@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import SelectionContainer from '../session_form/selection_container';
+import CartItemContainer from '../cart_items/cart_items_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -19,6 +20,9 @@ function Modal({ modal, closeModal }) {
             break;
         case 'selection':
             component = <SelectionContainer />;
+            break;
+        case 'cart':
+            component = <CartItemContainer />;
             break;
         default:
             return null;
