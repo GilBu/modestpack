@@ -1,6 +1,7 @@
 .search-container {
   border: none;
   box-shadow: none;
+  width: 25%;
 }
 
 textarea:focus, input:focus{
@@ -18,4 +19,9 @@ textarea:focus, input:focus{
   font-weight: bold;
   padding: 0.75em 2em 0.75em 0.9em;
   width: 100%;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color:rgba(60,65,75,0.7);
+  opacity: 1; /* Firefox */
 }

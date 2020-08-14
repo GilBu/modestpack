@@ -4,14 +4,8 @@ import { Link } from 'react-router-dom';
 class CartItems extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      render: [false],
-      grandTotal: 0
-    }
 
-    this.uniqueGames = this.uniqueCartItems.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
-    this.total = this.total.bind(this);
     this.emptyCart = this.emptyCart.bind(this);
     this.filledCart = this.filledCart.bind(this);
     this.toTop = this.toTop.bind(this);
@@ -19,12 +13,16 @@ class CartItems extends React.Component {
   }
 
   purchase() {
-    this.props.userCartItems.forEach(cartItem => {
+    let cartItemsObj = Object.entries(this.props.userCartItems);
+    let { games } = this.props;
+    cartItemsObj.forEach(cartItem => {
+      let game = games[cartItem[1].game_id]
       this.props.createOrderItem({
-        orderer_id: cartItem.customer_id,
-        order_item_id: cartItem.game.id
+        orderer_id: cartItem[1].customer_id,
+        order_item_id: game.id
       })
-      this.props.deleteCartItem(cartItem.id)
+      debugger
+      this.props.deleteCartItem(cartItem[1].id)
     })
   }
 
@@ -37,22 +35,7 @@ class CartItems extends React.Component {
   }
 
   deleteItem(cartItem) {
-      this.props.deleteCartItem(cartItem.deleteableId)
-  }
-
-  uniqueCartItems() {
-    let { userCartItems } = this.props
-
-    let newCartItems = {}
-    userCartItems.forEach(userCartItem => {
-      if (newCartItems[userCartItem.game.id]) {
-        newCartItems[userCartItem.game.id]
-      } else {
-        newCartItems[userCartItem.game.id] = { game: userCartItem.game, deleteableId: userCartItem.id }
-      }
-    })
-
-    return newCartItems
+      this.props.deleteCartItem(cartItem.id)
   }
 
   emptyCart() {
@@ -80,9 +63,9 @@ class CartItems extends React.Component {
         <div className="buy-page">
           <div className="new-cart-div">
             {cartItemsObj.map(cartItem => {
-              let game = cartItem[1].game
-              allTotal += cartItem.game.price;
-              allSaleTotal += cartItem.game.price * (1 - cartItem.game.sale);
+              let game = this.props.games[cartItem[1].game_id]
+              allTotal += (game.price);
+              allSaleTotal += (game.price * (1 - game.sale / 100));
               return (
                 <div
                   key={game.id}
@@ -95,10 +78,10 @@ class CartItems extends React.Component {
                     }
                   >
                     <svg xmlns="http://www.w3.org/2000/svg"
-                      width="5.68889in" height="5.68889in"
+                      width="16px" height="16px"
                       viewBox="0 0 512 512">
                       <path id="Imported Path"
-                        fill="none" stroke="black" stroke-width="1"
+                        fill="gray"
                         d="M 256.00,33.00
                           C 132.30,33.00 32.00,133.30 32.00,257.00
                             32.00,380.70 132.30,481.00 256.00,481.00
@@ -143,10 +126,10 @@ class CartItems extends React.Component {
                   <br />
                   <div className="quantity">
                     <div className="quantity-word">
-                      ${cartItem.game.price}
+                      ${(game.price).toFixed(2)}
                     </div>
                     <div className="quantity-num">
-                      ${cartItem.game.price * (1 - cartItem.game.sale)}
+                      ${(game.price * (1 - game.sale / 100)).toFixed(2)}
                     </div>
                   </div>
                 </div>
@@ -156,7 +139,7 @@ class CartItems extends React.Component {
           </div>
         </div>
         <div className="checkout-div">
-          <div id="all-total" className="quantity-word">Total: ${allTotal} ${allSaleTotal}</div>
+          <div id="all-total" className="quantity-word">Total: ${allTotal.toFixed(2)} ${allSaleTotal.toFixed(2)}</div>
           <button onClick={() => this.purchase()} className="checkout">Purchase</button>
         </div>
       </div>
@@ -165,9 +148,10 @@ class CartItems extends React.Component {
   }
 
   render() {
-    let cartItemsObj = Object.entries(this.uniqueCartItems());
-
-    return (cartItemsObj.length === 0 ? this.emptyCart() : this.filledCart(cartItemsObj))
+    let cartItemsObj = Object.entries(this.props.userCartItems);
+    return (
+      cartItemsObj.length === 0 ? this.emptyCart() : this.filledCart(cartItemsObj)
+    )
   }
 }
 

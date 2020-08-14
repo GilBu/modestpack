@@ -1,10 +1,10 @@
 
-export const getAllCartItems = () => (
-  $.ajax({
+export const getAllCartItems = () => {
+ return $.ajax({
     method: "GET",
     url: "/api/cart_items"
   })
-)
+}
 
 export const getCartItem = (cartItemId) => (
   $.ajax({

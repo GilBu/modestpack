@@ -6,6 +6,22 @@ class User < ApplicationRecord
     validates :username, uniqueness: true
     validates :password, length: { minimum: 8 }, allow_nil: true
 
+    has_many :games,
+    through: :cart_items,
+    source: :game
+
+    has_many :order_items,
+    foreign_key: :orderer_id,
+    class_name: :OrderItem
+
+    has_many :ordered_games,
+    through: :order_items,
+    source: :game
+
+    has_many :cart_items,
+    foreign_key: :customer_id,
+    class_name: :CartItem
+
     after_initialize :ensure_session_token
 
     def self.find_by_creadentials(username, password)

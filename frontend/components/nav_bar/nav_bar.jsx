@@ -6,7 +6,6 @@ const NavBar = ({ currentUser, logout, openModal, demoLogin }) => {
 
     const sessionLinks = () => (
         <nav className = "login-signup">
-            {/* <Search searchSpace={this.props.searchSpace}/> */}
             <a className="login-button" onClick={() => openModal('login')}>Log In</a>
             <a className="signup-button" onClick={() => openModal('signup')}>Sign Up</a>
         </nav>

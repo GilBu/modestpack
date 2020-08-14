@@ -27,7 +27,7 @@ export const removeCartItem = (cartItemId, allCartItems) => ({
 
 export const getAllCartItems = () => dispatch => {
   return (CartItemAPIUtil.getAllCartItems()
-    .then(cartItems => dispatch(receiveCartItems(cartItems))))
+    .then(cartItems => (dispatch(receiveCartItems(cartItems)))))
 }
 
 export const getCartItem = cartItemId => dispatch => (
@@ -40,11 +40,11 @@ export const createCartItem = cartItem => dispatch => (
     .then(cartItem => dispatch(receiveCartItem(cartItem)))
 )
 
-export const deleteCartItem = cartItemId => dispatch => (
-  CartItemAPIUtil.deleteCartItem(cartItemId)
+export const deleteCartItem = cartItemId => dispatch => {
+  return (CartItemAPIUtil.deleteCartItem(cartItemId)
     .then(() => CartItemAPIUtil.getAllCartItems())
-    .then((allCartItems) => dispatch(removeCartItem(cartItemId, allCartItems)))
-)
+    .then((allCartItems) => dispatch(removeCartItem(cartItemId, allCartItems))))
+}
 
 export const updateCartItem = (data, id) => dispatch => (
   CartItemAPIUtil.updateCartItem(data, id)

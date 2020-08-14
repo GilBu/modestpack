@@ -3,14 +3,15 @@ import { getAllCartItems, createCartItem, deleteCartItem, updateCartItem } from 
 import CartItems from './cart_items';
 import { createOrderItem } from '../../actions/order_items_actions';
 
-const mapStateToProps = state => {
+const mSTP = state => {
   return ({
     userCartItems: Object.values(state.entities.cartItems),
     currentUserId: state.session.id,
+    games: state.entities.games
   })
 }
 
-const mapDispatchToProps = dispatch => ({
+const mDTP = dispatch => ({
   getAllCartItems: () => dispatch(getAllCartItems()),
   createCartItem: cartItem => dispatch(createCartItem(cartItem)),
   deleteCartItem: cartItemId => dispatch(deleteCartItem(cartItemId)),
@@ -18,4 +19,4 @@ const mapDispatchToProps = dispatch => ({
   updateCartItem: (data, id) => dispatch(updateCartItem(data, id)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartItems)
+export default connect(mSTP, mDTP)(CartItems)

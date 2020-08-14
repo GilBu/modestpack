@@ -15,7 +15,7 @@ class Search extends React.Component {
 
     return (
       <form className="search-container">
-        <input className="search-bar" type="text" value={this.props.search} onChange={this.handleChange} />
+        <input className="search-bar" type="text" placeholder="Search" value={this.props.search} onChange={this.handleChange} />
       </form>
     )
   }
