@@ -11,6 +11,7 @@ import Modal from './modal/modal';
 import GameIndexContainer from './game_index/game_index_container';
 import Search from './search/search';
 import Footer from './footer/footer';
+import OrderItemContainer from './order_items/order_items_container'
 
 class App extends React.Component {
 
@@ -57,6 +58,7 @@ class App extends React.Component {
                         </nav>
                     </div>
                     <Switch>
+                        <Route path="/orders" component={OrderItemContainer} />
                         <Route path="/games/:gameId" component={GameShowContainer} />
                         <Route path="/" component={() => <GameIndexContainer className="game-index" games={games} search={this.props.search == null ? "" : this.props.search} />} />
                     </Switch>
