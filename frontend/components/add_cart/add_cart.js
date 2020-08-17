@@ -8,10 +8,6 @@ class AddCart extends React.Component {
     this.checkCart = this.checkCart.bind(this);
   }
 
-  componentDidMount() {
-    this.props.getAllCartItems();
-  }
-
   checkCart (currentItem) {
     if (this.props.userCartItems.length === 0) {
       this.props.createCartItem({

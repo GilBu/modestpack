@@ -119,7 +119,7 @@
   height: auto;
 }
 
-.add-cart, .buy-cart {
+.price-display > button, .buy-cart {
   display: none;
 }
 
@@ -133,6 +133,16 @@
   display: none;
 }
 
-.price-display:hover .add-cart {
-  display: inline;
+.price-display:hover button {
+  display: inline-block;
+  height: auto;
+  width: 4ch;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }

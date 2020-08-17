@@ -1,4 +1,5 @@
 import React from 'react';
+import AddCartContainer from '../add_cart/add_cart_container';
 
 class GameListItem extends React.Component {
   constructor(props) {
@@ -3840,7 +3841,9 @@ class GameListItem extends React.Component {
                         <p className="sale-card">-{game.sale}%</p>
                         <div className="price-display">
                             <span className="price" >${(game.price * (1 - game.sale * .01)).toFixed(2)}</span>
-                            <span className="add-cart">Add</span>
+                            <AddCartContainer className="add-cart" game={game} >
+                                <i className="fa fa-shopping-cart"></i>Add To Cart
+                            </AddCartContainer>
                             <span className="buy-cart">Buy</span>
                     </div>
                 </div>

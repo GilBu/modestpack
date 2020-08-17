@@ -340,3 +340,16 @@ table {
   flex-direction: row;
 }
 
+.cart-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  padding: 10px;
+}
+
+.cart-button > * {
+  color: #d8d8da;
+  padding: 3px;
+}

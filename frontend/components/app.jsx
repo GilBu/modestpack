@@ -24,6 +24,7 @@ class App extends React.Component {
 
     componentDidMount() {
         this.props.fetchGames();
+        this.props.getAllCartItems();
     }
 
     searchSpace (text) {
@@ -33,7 +34,7 @@ class App extends React.Component {
     
 
     render () {
-        let {games} = this.props;
+        let { games, userCartItems} = this.props;
         const search = this.state.search;
         games = games.filter(game => {
             if (this.state.search == "")
@@ -42,18 +43,17 @@ class App extends React.Component {
                 return game
             }
         })
-
         return (
             <div>
                 <div className="main-page">
                     <div className="nav-container">
-                        <Modal games={this.props.games}/>
+                        <Modal games={games}/>
                         <nav className="nav-content">
                             <Link to="/" className="nav-link">
                                 <h1>Modest Pack</h1>
                             </Link>
                             <Search search={search} searchSpace={this.searchSpace}/>
-                            <NavBarContainer />
+                            <NavBarContainer userCartItems={userCartItems}/>
                         </nav>
                     </div>
                     <Switch>
