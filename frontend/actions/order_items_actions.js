@@ -21,7 +21,6 @@ export const getAllOrderItems = () => dispatch => {
 }
 
 export const createOrderItem = (orderItem) => dispatch => {
-  debugger
   return (
     OrderItemAPIUtil.createOrderItem(orderItem)
       .then(orderItem => dispatch(receiveOrderItem(orderItem)))

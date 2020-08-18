@@ -3892,7 +3892,6 @@ class GameShow extends React.Component {
             />
         );
 
-        items = items.concat(items).concat(items);
 
         let { index, delta } = this.state;
         let length = this.sources.length;
@@ -3989,7 +3988,7 @@ class GameShow extends React.Component {
                             <label>Platform
                                 <p className="game-platform">
                                     {icons.map((icon, index) => (
-                                        <p key={index}>{icon}</p>
+                                        <a key={index}>{icon}</a>
                                     ))}
                                 </p>
                             </label>

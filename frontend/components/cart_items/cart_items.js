@@ -5,7 +5,6 @@ class CartItems extends React.Component {
   constructor(props) {
     super(props)
 
-    this.deleteItem = this.deleteItem.bind(this);
     this.emptyCart = this.emptyCart.bind(this);
     this.filledCart = this.filledCart.bind(this);
     this.toTop = this.toTop.bind(this);
@@ -21,7 +20,6 @@ class CartItems extends React.Component {
         orderer_id: cartItem[1].customer_id,
         order_item_id: game.id
       })
-      debugger
       this.props.deleteCartItem(cartItem[1].id)
     })
   }
