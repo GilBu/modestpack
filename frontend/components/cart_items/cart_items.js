@@ -62,6 +62,7 @@ class CartItems extends React.Component {
           <div className="new-cart-div">
             {cartItemsObj.map(cartItem => {
               let game = this.props.games[cartItem[1].game_id]
+              debugger
               allTotal += (game.price);
               allSaleTotal += (game.price * (1 - game.sale / 100));
               return (
