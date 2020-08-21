@@ -1,0 +1,56 @@
+.selection {
+  /* align-self: flex-start;
+  margin: auto 0; */
+  position: absolute;
+  left: 0;
+  top: calc(50% - 40px);
+  cursor: pointer;
+  font-size: 30px;
+  padding: 20px 20px 20px 10px;
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.selection-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.selection-box {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-end;
+  padding: 0 40px 40px 40px;
+}
+
+.selection-modal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-name {
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 33px;
+  align-self: center;
+  padding: 20px;
+}
+
+.selection-modal > .login-signup {
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+}
+
+.selection-modal > .login-signup > a{
+  width: 100%;
+  background-color: #97b147;
+  background-image: linear-gradient(-180deg, #97b147 0%, #7e992e 91%);
+  margin-top: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}

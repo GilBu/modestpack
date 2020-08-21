@@ -30,8 +30,8 @@ class AddCart extends React.Component {
 
   addToCart (e) {
     e.preventDefault();
-    if (this.props.currentUser.id === null) {
-      openModal("login");
+    if (this.props.currentUser === undefined) {
+      this.props.openModal("login");
     } else {
       this.checkCart(this.props.game)
     }

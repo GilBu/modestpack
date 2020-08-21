@@ -1,0 +1,64 @@
+.login-signup {
+  display: flex;
+  align-items: center;
+  float: right;
+  height: 46.5px;
+  color: white;
+}
+
+.login-signup > a:hover {
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.login-signup > a, .header-button {
+  cursor: pointer;
+  padding: 13px 20px;
+  border: 2px solid #757880;
+  font-size: 1em;
+  color: white;
+  background-color: #494f5c;
+}
+
+.login-signup > .login-button {
+  border-radius: 4px 0 0 4px;
+}
+
+.login-signup > .signup-button {
+  border-radius: 0 4px 4px 0;
+  border-left: 2px solid transparent;
+}
+
+.header-button {
+  border-radius: 4px;
+}
+
+.header-name {
+  height: 46.5px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;  
+  font-size: 20px;
+  color: white;
+  padding-right: 10px;
+}
+
+.header-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  padding: 10px;
+}
+
+.cart-button > * {
+  color: #d8d8da;
+  padding: 3px;
+  cursor: pointer;
+}

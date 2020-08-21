@@ -27,15 +27,33 @@ function Modal({ modal, closeModal }) {
         default:
             return null;
     }
-    return (
-        <div className="modal-background" onClick={closeModal}>
-            <div className="modal-image">
-                <div className="modal-child" onClick={e => e.stopPropagation()}>
-                    {component}
+    switch (modal) {
+        case 'login':
+        case 'signup':
+        case 'selection':
+            return (
+                <div className="modal-background" onClick={closeModal}>
+                    <div className="modal-image">
+                        <div className="modal-child" onClick={e => e.stopPropagation()}>
+                            {component}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    );
+            );
+        case 'cart':
+            return (
+                <div className="modal-background" onClick={closeModal}>
+                    <div>
+                        <div className="cart-model-container" onClick={e => e.stopPropagation()}>
+                            {component}
+                        </div>
+                    </div>
+                </div>
+            );
+        default:
+            return null;
+    }
+    
 }
 
 const mSTP = state => {
