@@ -42,7 +42,7 @@ class OrderItems extends React.Component {
   emptyOrders() {
     return (
       <div>
-        <h1 className="header">Your Orders</h1>
+        <h1 className="header">Purchased Products</h1>
         <div className="buy-page">
           <div className="empty-cart-div">
             <div className="header">You have no orders!</div>
@@ -54,45 +54,44 @@ class OrderItems extends React.Component {
 
   filledOrders(orderItemsObj) {
     return (
-      <div>
-        <h1 className="header">Your Orders</h1>
-
-        <div className="buy-page">
-          <div className="new-cart-div">
-            {orderItemsObj.map(orderItem => {
-              return (
-                <div
-                  key={orderItem.id}
-                  className="cart-item-div"
-                >
-                  <Link
-                    onClick={() => this.toTop()}
-                    className="public-product-links"
-                    to={`/games/${orderItem.id}`}
+      <div className="order-container">
+        <div className="orders">
+          <h1 className="products-header">Purchased Products</h1>
+          <div className="order-list">
+          <div className="order-header">
+            <div className="header-product header-title" >PRODUCT</div>
+            <div className="header-date header-title" >DATE</div>
+            <div className="header-title">TOTAL</div>
+          </div>
+            <div className="new-cart-div">
+              {orderItemsObj.map(orderItem => {
+                return (
+                  <div
+                    key={orderItem.id}
+                    className="order-item-div"
                   >
-                    {orderItem.title}
-                  </Link>
-                  <br />
-                  <div className="quantity">
-                    <div className="quantity-word">
-                      Total:{" "}
+                    <Link
+                      onClick={() => this.toTop()}
+                      className="order-title header-product"
+                      to={`/games/${orderItem.id}`}
+                    >
+                      {orderItem.title}
+                    </Link>
+                    <div>
+                      <div className="header-date">
+                        {orderItem.created_at}
+                      </div>
                     </div>
-                    <div className="quantity-num">
-                      ${orderItem.price}
+                    <div className="quantity">
+                      <div className="quantity-num">
+                        ${orderItem.price}
+                      </div>
                     </div>
                   </div>
-                  <div className="quantity">
-                    <div className="quantity-word">
-                      Ordered:{" "}
-                    </div>
-                    <div id="order-margin" className="quantity-num">
-                      {orderItem.created_at}
-                    </div>
-                  </div>
-                </div>
-              );
-            }
-            )}
+                );
+              }
+              )}
+            </div>
           </div>
         </div>
       </div>

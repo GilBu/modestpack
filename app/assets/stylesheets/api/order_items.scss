@@ -1,3 +1,89 @@
 // Place all the styles related to the api/OrderItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.order-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.orders {
+  width: 940px;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 30px auto;
+  background: rgba(213,217,225,0.5);
+  border: 1px solid rgba(161,167,178,0.5);
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.products-header {
+  font-weight: 200;
+  font-size: 2em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.order-list {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #c2c7cf;
+  overflow: hidden;
+}
+
+.order-header {
+  display: flex;
+  flex-direction: row;
+  background: #a1a7b2;
+  font-weight: bold;
+  text-align: left;
+  color: #fff;
+  padding: 10px 0 10px 30px;
+}
+
+.header-product {
+  width: 500px;
+  min-width: 500px;
+  max-width: 500px;
+  font-weight: bold;
+}
+
+.header-date {
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+}
+
+.order-title:link, .order-title:visited, .order-title:hover, .order-title:active {
+  text-decoration: none;
+  color: black;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.order-item-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  padding: 10px 30px;
+  text-decoration: none;
+  border-bottom: 1px solid #c2c7cf;
+}
+
+.order-title {
+  color: #555;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: normal;
+}
