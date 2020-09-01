@@ -19,7 +19,11 @@ Modest Pack, a Humble Bundle clone, is an online store where users can purchase 
 
 * Secure user authentication
 * View and purchase games
-
+<img src="./gifs/search.gif" width=1280 height=auto>
+<img src="./gifs/gameNav.gif" width=1280 height=auto>
+<img src="./gifs/carousel.gif" width=1280 height=auto>
+<img src="./gifs/cart.gif" width=1280 height=auto>
+<img src="./gifs/orders.gif" width=1280 height=auto>
 ## Modal Login
 
 Nav bar will contain buttons to open a modal that either login or sign up for the website. The modal contain input fields that take in a username and password to login or signup. The modal would also have a button to render another modal that would have buttons to change to a login or signup modal. The login modal would have a demo user login.
